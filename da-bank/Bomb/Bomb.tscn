@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://b3fycyaapy21n"]
 
 [ext_resource type="Script" uid="uid://cwpnhcdc3eb40" path="res://Bomb/bomb.gd" id="1_vlo8u"]
-[ext_resource type="Texture2D" uid="uid://c71b562ru51vu" path="res://icon.svg" id="2_75bcl"]
+[ext_resource type="Texture2D" uid="uid://cjx38e8unccgk" path="res://Untisdftled_Artwork.png" id="2_75bcl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1mo0"]
+atlas = ExtResource("2_75bcl")
+region = Rect2(228.6755, 115.19209, 65.54236, 171.5674)
 
 [node name="Bomb" type="Node2D" unique_id=563254750]
 script = ExtResource("1_vlo8u")
@@ -10,7 +14,8 @@ script = ExtResource("1_vlo8u")
 wait_time = 30.0
 one_shot = true
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=515436822]
-modulate = Color(0.87038714, 1.4439225e-06, 1.2513996e-06, 1)
-scale = Vector2(0.9062499, 1.3593751)
-texture = ExtResource("2_75bcl")
+[node name="UntisdftledArtwork" type="Sprite2D" parent="." unique_id=1129922201]
+texture_filter = 1
+position = Vector2(1.000001, 1.0000019)
+scale = Vector2(1.1416084, 1.1416084)
+texture = SubResource("AtlasTexture_h1mo0")

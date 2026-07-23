@@ -15,7 +15,7 @@ position = Vector2(27, 36)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=343373614]
 position = Vector2(0, 160.535)
-scale = Vector2(3.805, 3.805)
+scale = Vector2(6.6449995, 3.805)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1578829645]
 shape = SubResource("RectangleShape2D_ppyta")
@@ -37,6 +37,7 @@ texture = ExtResource("2_6uqi0")
 
 [node name="Bomb" parent="." unique_id=563254750 instance=ExtResource("3_6uqi0")]
 position = Vector2(-784, 34)
+
 [node name="Enemies" type="Node" parent="." unique_id=462978352]
 
 [node name="Enemy" parent="Enemies" unique_id=664525115 instance=ExtResource("1_6uqi0")]
