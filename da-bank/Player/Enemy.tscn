@@ -30,4 +30,10 @@ shape = SubResource("CapsuleShape2D_tok1r")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1245089522]
 shape = SubResource("CapsuleShape2D_nxmrh")
 
+[node name="Health" type="ProgressBar" parent="." unique_id=594678056]
+offset_left = -83.0
+offset_top = -124.0
+offset_right = 87.0
+offset_bottom = -97.0
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_entered"]
