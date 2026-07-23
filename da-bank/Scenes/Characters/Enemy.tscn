@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://bf4ljfy7isphv" path="res://Scenes/Characters/Scripts/Enemy.gd" id="1_nxmrh"]
 [ext_resource type="SpriteFrames" uid="uid://8s02amvmx7qs" path="res://Assets/Animations.tres" id="2_nxmrh"]
 [ext_resource type="PackedScene" uid="uid://cirdkc8w460e2" path="res://Scenes/Characters/Particles.tscn" id="3_qp4pf"]
-[ext_resource type="Texture2D" uid="uid://byjn58gd0dnb4" path="res://Assets/police.tres" id="4_nx8t7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tok1r"]
 radius = 45.0
@@ -33,13 +32,6 @@ shape = SubResource("CapsuleShape2D_tok1r")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1245089522]
 shape = SubResource("CapsuleShape2D_nxmrh")
 
-[node name="UntisdftledArtwork" type="Sprite2D" parent="." unique_id=191020375]
-visible = false
-texture_filter = 1
-position = Vector2(7.9999995, -24)
-scale = Vector2(0.8986014, 0.89860135)
-texture = ExtResource("4_nx8t7")
-
 [node name="Health" type="ProgressBar" parent="." unique_id=249780495]
 offset_left = -88.0
 offset_top = -164.0
@@ -47,3 +39,4 @@ offset_right = 92.0
 offset_bottom = -137.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_exited"]

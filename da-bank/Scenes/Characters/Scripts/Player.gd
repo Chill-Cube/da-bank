@@ -1,6 +1,8 @@
 extends Character
 class_name Player
 
+@export var MONEY := 100.0
+
 func _ready():
 	animation_key = "Player"
 	super()
