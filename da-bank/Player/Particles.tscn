@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://cirdkc8w460e2"]
+
+[sub_resource type="Gradient" id="Gradient_3qydi"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tok1r"]
+gradient = SubResource("Gradient_3qydi")
+width = 5
+
+[sub_resource type="Gradient" id="Gradient_tok1r"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3qydi"]
+gradient = SubResource("Gradient_3qydi")
+width = 24
+height = 24
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q3lat"]
+gradient = SubResource("Gradient_3qydi")
+width = 24
+height = 24
+
+[sub_resource type="Gradient" id="Gradient_ddoul"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Particles" type="Node2D" unique_id=329845650]
+
+[node name="SpeedLines" type="CPUParticles2D" parent="." unique_id=1335466019]
+emitting = false
+amount = 2
+texture = SubResource("GradientTexture2D_tok1r")
+lifetime = 0.2
+explosiveness = 0.08
+emission_shape = 2
+emission_sphere_radius = 72.24
+particle_flag_align_y = true
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 400.0
+initial_velocity_max = 500.0
+color = Color(1, 1, 1, 0.19607843)
+color_ramp = SubResource("Gradient_tok1r")
+
+[node name="Dust" type="CPUParticles2D" parent="." unique_id=2056951629]
+position = Vector2(0, 87)
+emitting = false
+amount = 4
+texture = SubResource("GradientTexture2D_3qydi")
+lifetime = 0.35000000000000003
+explosiveness = 0.08
+direction = Vector2(1, -0.5)
+spread = 25.0
+initial_velocity_min = 400.0
+initial_velocity_max = 500.0
+angular_velocity_min = -500.0
+angular_velocity_max = -500.0
+color = Color(1, 1, 1, 0.19607843)
+color_ramp = SubResource("Gradient_tok1r")
+
+[node name="JumpDust" type="CPUParticles2D" parent="." unique_id=83637069]
+position = Vector2(0, 87)
+emitting = false
+amount = 10
+texture = SubResource("GradientTexture2D_q3lat")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, -1)
+spread = 75.0
+initial_velocity_min = 450.0
+initial_velocity_max = 450.0
+angular_velocity_min = -500.0
+angular_velocity_max = 500.0
+color = Color(1, 1, 1, 0.19607843)
+color_ramp = SubResource("Gradient_ddoul")
