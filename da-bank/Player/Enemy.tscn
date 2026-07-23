@@ -1,21 +1,27 @@
 [gd_scene format=3 uid="uid://btyod4aak0ct3"]
 
-[ext_resource type="Script" uid="uid://bf4ljfy7isphv" path="res://Player/Scripts/Enemy.gd" id="1_nxmrh"]
+[ext_resource type="Script" path="res://Player/Scripts/Enemy.gd" id="1_nxmrh"]
 [ext_resource type="SpriteFrames" uid="uid://8s02amvmx7qs" path="res://Assets/Animations.tres" id="2_nxmrh"]
 [ext_resource type="PackedScene" uid="uid://cirdkc8w460e2" path="res://Player/Particles.tscn" id="3_qp4pf"]
+[ext_resource type="Texture2D" uid="uid://cjx38e8unccgk" path="res://Untisdftled_Artwork.png" id="4_nx8t7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tok1r"]
-radius = 58.0
+radius = 45.0
 height = 174.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nxmrh"]
 radius = 63.0
 height = 164.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp4pf"]
+atlas = ExtResource("4_nx8t7")
+region = Rect2(338.87012, 241.10007, 157.71405, 248.98947)
+
 [node name="Enemy" type="CharacterBody2D" unique_id=664525115]
 script = ExtResource("1_nxmrh")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=550988252]
+visible = false
 scale = Vector2(0.9062499, 1.3593751)
 sprite_frames = ExtResource("2_nxmrh")
 animation = &"EnemyFall"
@@ -29,5 +35,11 @@ shape = SubResource("CapsuleShape2D_tok1r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1245089522]
 shape = SubResource("CapsuleShape2D_nxmrh")
+
+[node name="UntisdftledArtwork" type="Sprite2D" parent="." unique_id=191020375]
+texture_filter = 1
+position = Vector2(7.9999995, -24)
+scale = Vector2(0.8986014, 0.89860135)
+texture = SubResource("AtlasTexture_qp4pf")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_entered"]

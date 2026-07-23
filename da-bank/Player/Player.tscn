@@ -5,10 +5,15 @@
 [ext_resource type="SpriteFrames" uid="uid://8s02amvmx7qs" path="res://Assets/Animations.tres" id="2_tok1r"]
 [ext_resource type="Script" uid="uid://cljl4d0j55i5m" path="res://Player/Scripts/camera_pivot.gd" id="3_tok1r"]
 [ext_resource type="PackedScene" uid="uid://ly61atxdll68" path="res://UI/hud.tscn" id="4_ddoul"]
+[ext_resource type="Texture2D" uid="uid://cjx38e8unccgk" path="res://Untisdftled_Artwork.png" id="6_6ysni"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tok1r"]
 radius = 58.0
 height = 174.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlldt"]
+atlas = ExtResource("6_6ysni")
+region = Rect2(48.450027, 286.46915, 143.54997, 200.17416)
 
 [node name="Player" type="CharacterBody2D" unique_id=664525115]
 script = ExtResource("1_tok1r")
@@ -16,6 +21,7 @@ SPEED = 1000.0
 JUMP_VELOCITY = -700.0
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1635229560]
+visible = false
 scale = Vector2(0.9062499, 1.3593751)
 sprite_frames = ExtResource("2_tok1r")
 animation = &"PlayerIdle"
@@ -34,3 +40,9 @@ offset = Vector2(0, -75)
 zoom = Vector2(0.775, 0.775)
 
 [node name="Hud" parent="." unique_id=466858541 instance=ExtResource("4_ddoul")]
+
+[node name="UntisdftledArtwork" type="Sprite2D" parent="." unique_id=94388981]
+texture_filter = 1
+position = Vector2(0.99999905, -3)
+scale = Vector2(0.8986014, 0.89860135)
+texture = SubResource("AtlasTexture_vlldt")

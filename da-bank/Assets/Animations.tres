@@ -44,10 +44,7 @@ animations = [{
 "name": &"PlayerFall",
 "speed": 5.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_abkds")
-}],
+"frames": [],
 "loop": true,
 "name": &"PlayerIdle",
 "speed": 5.0
