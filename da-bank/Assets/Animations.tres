@@ -1,0 +1,70 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://8s02amvmx7qs"]
+
+[ext_resource type="Texture2D" uid="uid://c71b562ru51vu" path="res://icon.svg" id="1_abkds"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_abkds")
+}],
+"loop": true,
+"name": &"EnemyFall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_abkds")
+}],
+"loop": true,
+"name": &"EnemyIdle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_abkds")
+}],
+"loop": false,
+"name": &"EnemyJump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_abkds")
+}],
+"loop": true,
+"name": &"EnemyMove",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_abkds")
+}],
+"loop": true,
+"name": &"PlayerFall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_abkds")
+}],
+"loop": true,
+"name": &"PlayerIdle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_abkds")
+}],
+"loop": false,
+"name": &"PlayerJump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_abkds")
+}],
+"loop": true,
+"name": &"PlayerMove",
+"speed": 5.0
+}]
