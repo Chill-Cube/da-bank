@@ -1,8 +1,6 @@
 extends Character
 class_name Enemy
 
-@onready var health_bar := $Health
-
 func _ready():
 	SPEED = 600.0
 	ACCELERATION = 0.05
@@ -23,7 +21,3 @@ func _physics_process(delta: float) -> void:
 func _on_entered(body: Node2D) -> void:
 	if body is Player:
 		print("do the stuff")
-
-func _process(delta: float) -> void:
-	health_bar.max_value = MAX_HEALTH
-	health_bar.value = HEALTH
