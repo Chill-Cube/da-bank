@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://c71b562ru51vu" path="res://icon.svg" id="1_3qydi"]
 [ext_resource type="PackedScene" uid="uid://cirdkc8w460e2" path="res://Player/Particles.tscn" id="2_q3lat"]
+[ext_resource type="Script" uid="uid://cljl4d0j55i5m" path="res://Player/Scripts/camera_pivot.gd" id="3_tok1r"]
 
 [sub_resource type="GDScript" id="GDScript_q3lat"]
 script/source = "extends Character
 class_name Player
 
-@onready var camera := $Camera2D
 
 
 func _physics_process(delta: float) -> void:
@@ -19,11 +19,9 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis(\"left\", \"right\")
-	print(direction)
 
 	velocity.x = lerp(velocity.x,direction * SPEED,ACCELERATION)
 
-	camera.position = lerp(camera.position,position,0.1)
 	super(delta)
 "
 
@@ -41,8 +39,12 @@ texture = ExtResource("1_3qydi")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2026365785]
 shape = SubResource("CapsuleShape2D_tok1r")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1784772064]
-top_level = true
-offset = Vector2(0, -75)
-
 [node name="Particles" parent="." unique_id=329845650 instance=ExtResource("2_q3lat")]
+
+[node name="CameraPivot" type="Node2D" parent="." unique_id=1179780325]
+top_level = true
+script = ExtResource("3_tok1r")
+
+[node name="Camera2D" type="Camera2D" parent="CameraPivot" unique_id=1784772064]
+offset = Vector2(0, -75)
+zoom = Vector2(0.775, 0.775)
