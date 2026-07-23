@@ -3,6 +3,28 @@
 [ext_resource type="Script" uid="uid://cwkqfxjlvj00w" path="res://Player/Scripts/Player.gd" id="1_tok1r"]
 [ext_resource type="PackedScene" uid="uid://cirdkc8w460e2" path="res://Player/Particles.tscn" id="2_q3lat"]
 [ext_resource type="SpriteFrames" uid="uid://8s02amvmx7qs" path="res://Assets/Animations.tres" id="2_tok1r"]
+[ext_resource type="Script" uid="uid://cljl4d0j55i5m" path="res://Player/Scripts/camera_pivot.gd" id="3_tok1r"]
+
+[sub_resource type="GDScript" id="GDScript_q3lat"]
+script/source = "extends Character
+class_name Player
+
+
+
+func _physics_process(delta: float) -> void:
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"jump\") and is_on_floor():
+		jumping = true
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction := Input.get_axis(\"left\", \"right\")
+
+	velocity.x = lerp(velocity.x,direction * SPEED,ACCELERATION)
+
+	super(delta)
+"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tok1r"]
 radius = 58.0
@@ -19,8 +41,12 @@ animation = &"PlayerIdle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2026365785]
 shape = SubResource("CapsuleShape2D_tok1r")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1784772064]
-top_level = true
-offset = Vector2(0, -75)
-
 [node name="Particles" parent="." unique_id=329845650 instance=ExtResource("2_q3lat")]
+
+[node name="CameraPivot" type="Node2D" parent="." unique_id=1179780325]
+top_level = true
+script = ExtResource("3_tok1r")
+
+[node name="Camera2D" type="Camera2D" parent="CameraPivot" unique_id=1784772064]
+offset = Vector2(0, -75)
+zoom = Vector2(0.775, 0.775)
