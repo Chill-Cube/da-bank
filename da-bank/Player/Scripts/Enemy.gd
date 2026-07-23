@@ -13,6 +13,10 @@ func _physics_process(delta: float) -> void:
 		if abs(distance_x) != distance_x: vel.x = -SPEED
 		else: vel.x = SPEED
 		var distance_y := player.global_position.y - global_position.y
-		print(distance_y)
 		if distance_y <= -125.0 and !player.is_on_floor() and abs(distance_x) <= 40.0: if is_on_floor(): jumping = true
 	super(delta)
+
+
+func _on_entered(body: Node2D) -> void:
+	if body is Player:
+		print("do the stuff")
