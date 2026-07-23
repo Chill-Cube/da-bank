@@ -1,33 +1,20 @@
 [gd_scene format=3 uid="uid://db51f78xwt0ci"]
 
 [ext_resource type="Texture2D" uid="uid://c71b562ru51vu" path="res://icon.svg" id="1_3qydi"]
+[ext_resource type="PackedScene" uid="uid://cirdkc8w460e2" path="res://Player/Particles.tscn" id="2_q3lat"]
 
 [sub_resource type="GDScript" id="GDScript_q3lat"]
-script/source = "extends CharacterBody2D
+script/source = "extends Character
 class_name Player
 
-@export var SPEED := 500.0
-@export var JUMP_VELOCITY := -600.0
-@export var ACCELERATION := 0.1
-
-var old_dir := 0.0
-var switching_directions := false
-
 @onready var camera := $Camera2D
-@onready var jump_particles := $JumpDust
-@onready var move_particles := $Dust
-@onready var speed_lines := $SpeedLines
 
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed(\"jump\") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		jump_particles.emitting = true
+		jumping = true
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -36,60 +23,9 @@ func _physics_process(delta: float) -> void:
 
 	velocity.x = lerp(velocity.x,direction * SPEED,ACCELERATION)
 
-	# particles
-	if is_on_floor():
-		if abs(velocity.x) >= 75.0: move_particles.emitting = true
-		else: move_particles.emitting = false
-	else: move_particles.emitting = false
-
-	move_particles.initial_velocity_min = 400.0 * (abs(velocity.x)/SPEED)
-	move_particles.initial_velocity_max = 500.0 * (abs(velocity.x)/SPEED)
-	move_particles.texture.width = clamp(24 * (abs(velocity.x)/SPEED),1,24)
-	move_particles.texture.height = clamp(24 * (abs(velocity.x)/SPEED),1,24)
-
-	if abs(velocity.x) != velocity.x:
-		# left
-		move_particles.direction.x = -1.0
-		move_particles.angular_velocity_min = 500.0
-		move_particles.angular_velocity_max = 500.0
-	else:
-		# right
-		move_particles.direction.x = 1.0
-		move_particles.angular_velocity_min = -500.0
-		move_particles.angular_velocity_max = -500.0
-
-	speed_lines.texture.height = clamp((abs(velocity.x/10)) + (abs(velocity.y)) / 10,1,1.0/0.0)
-	speed_lines.direction = -velocity
-	if (abs(velocity.x)) + (abs(velocity.y)) >= 75.0: speed_lines.emitting = true
-	else: speed_lines.emitting = false
-
-	move_and_slide()
 	camera.position = lerp(camera.position,position,0.1)
+	super(delta)
 "
-
-[sub_resource type="Gradient" id="Gradient_3qydi"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_tok1r"]
-gradient = SubResource("Gradient_3qydi")
-width = 5
-
-[sub_resource type="Gradient" id="Gradient_tok1r"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_3qydi"]
-gradient = SubResource("Gradient_3qydi")
-width = 24
-height = 24
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_q3lat"]
-gradient = SubResource("Gradient_3qydi")
-width = 24
-height = 24
-
-[sub_resource type="Gradient" id="Gradient_ddoul"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tok1r"]
 radius = 58.0
@@ -102,59 +38,11 @@ script = SubResource("GDScript_q3lat")
 scale = Vector2(0.9062499, 1.3593751)
 texture = ExtResource("1_3qydi")
 
-[node name="SpeedLines" type="CPUParticles2D" parent="." unique_id=164404727]
-emitting = false
-amount = 2
-texture = SubResource("GradientTexture2D_tok1r")
-lifetime = 0.2
-explosiveness = 0.08
-emission_shape = 2
-emission_sphere_radius = 72.24
-particle_flag_align_y = true
-direction = Vector2(0, -1)
-spread = 0.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 400.0
-initial_velocity_max = 500.0
-color = Color(1, 1, 1, 0.19607843)
-color_ramp = SubResource("Gradient_tok1r")
-
-[node name="Dust" type="CPUParticles2D" parent="." unique_id=1513169363]
-position = Vector2(0, 87)
-emitting = false
-amount = 4
-texture = SubResource("GradientTexture2D_3qydi")
-lifetime = 0.35000000000000003
-explosiveness = 0.08
-direction = Vector2(1, -0.5)
-spread = 25.0
-initial_velocity_min = 400.0
-initial_velocity_max = 500.0
-angular_velocity_min = -500.0
-angular_velocity_max = -500.0
-color = Color(1, 1, 1, 0.19607843)
-color_ramp = SubResource("Gradient_tok1r")
-
-[node name="JumpDust" type="CPUParticles2D" parent="." unique_id=68523294]
-position = Vector2(0, 87)
-emitting = false
-amount = 10
-texture = SubResource("GradientTexture2D_q3lat")
-lifetime = 0.5
-one_shot = true
-explosiveness = 1.0
-direction = Vector2(0, -1)
-spread = 75.0
-initial_velocity_min = 450.0
-initial_velocity_max = 450.0
-angular_velocity_min = -500.0
-angular_velocity_max = 500.0
-color = Color(1, 1, 1, 0.19607843)
-color_ramp = SubResource("Gradient_ddoul")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2026365785]
 shape = SubResource("CapsuleShape2D_tok1r")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1784772064]
 top_level = true
 offset = Vector2(0, -75)
+
+[node name="Particles" parent="." unique_id=329845650 instance=ExtResource("2_q3lat")]
