@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://btyod4aak0ct3"]
+
+[ext_resource type="Script" uid="uid://bf4ljfy7isphv" path="res://Player/Scripts/Enemy.gd" id="1_nxmrh"]
+[ext_resource type="SpriteFrames" uid="uid://8s02amvmx7qs" path="res://Assets/Animations.tres" id="2_nxmrh"]
+[ext_resource type="PackedScene" uid="uid://cirdkc8w460e2" path="res://Player/Particles.tscn" id="3_qp4pf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tok1r"]
+radius = 58.0
+height = 174.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nxmrh"]
+radius = 63.0
+height = 164.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=664525115]
+script = ExtResource("1_nxmrh")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=550988252]
+scale = Vector2(0.9062499, 1.3593751)
+sprite_frames = ExtResource("2_nxmrh")
+animation = &"EnemyFall"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2026365785]
+shape = SubResource("CapsuleShape2D_tok1r")
+
+[node name="Particles" parent="." unique_id=329845650 instance=ExtResource("3_qp4pf")]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=507733578]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1245089522]
+shape = SubResource("CapsuleShape2D_nxmrh")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_entered"]
