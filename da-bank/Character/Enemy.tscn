@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://btyod4aak0ct3"]
 
-[ext_resource type="Script" uid="uid://bf4ljfy7isphv" path="res://Player/Scripts/Enemy.gd" id="1_nxmrh"]
+[ext_resource type="Script" uid="uid://bf4ljfy7isphv" path="res://Character/Scripts/Enemy.gd" id="1_nxmrh"]
 [ext_resource type="SpriteFrames" uid="uid://8s02amvmx7qs" path="res://Assets/Animations.tres" id="2_nxmrh"]
-[ext_resource type="PackedScene" uid="uid://cirdkc8w460e2" path="res://Player/Particles.tscn" id="3_qp4pf"]
+[ext_resource type="PackedScene" uid="uid://cirdkc8w460e2" path="res://Character/Particles.tscn" id="3_qp4pf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tok1r"]
 radius = 58.0
