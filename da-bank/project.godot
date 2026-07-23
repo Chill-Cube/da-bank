@@ -15,6 +15,10 @@ run/main_scene="uid://dovt14prhx120"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SignalBus="*uid://ck20rlh1knjxp"
+
 [input]
 
 left={
