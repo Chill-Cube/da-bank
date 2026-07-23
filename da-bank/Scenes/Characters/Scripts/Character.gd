@@ -4,8 +4,6 @@ class_name Character
 @export var SPEED := 750.0
 @export var JUMP_VELOCITY := -800.0
 @export var ACCELERATION := 0.1
-@export var MAX_HEALTH := 100.0
-@export var HEALTH := 100.0
 @export var animation_key := ""
 
 @onready var jump_particles := $Particles/JumpDust
@@ -15,9 +13,6 @@ class_name Character
 
 var jumping := false
 var vel := Vector2.ZERO
-
-func _ready():
-	HEALTH = MAX_HEALTH
 
 func animation_playing(animation: String) -> bool:
 	return sprite.animation == animation_key + animation and sprite.is_playing()

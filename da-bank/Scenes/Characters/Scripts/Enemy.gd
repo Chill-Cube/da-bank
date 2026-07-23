@@ -5,7 +5,6 @@ func _ready():
 	SPEED = 600.0
 	ACCELERATION = 0.05
 	animation_key = "Enemy"
-	super()
 
 func _physics_process(delta: float) -> void:
 	if get_parent().get_parent().get_node_or_null("Player"):
