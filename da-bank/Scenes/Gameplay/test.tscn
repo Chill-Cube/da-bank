@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://btyod4aak0ct3" path="res://Scenes/Characters/Enemy.tscn" id="1_6uqi0"]
 [ext_resource type="PackedScene" uid="uid://db51f78xwt0ci" path="res://Scenes/Characters/Player.tscn" id="1_8uh7m"]
 [ext_resource type="Texture2D" uid="uid://c71b562ru51vu" path="res://icon.svg" id="2_6uqi0"]
+[ext_resource type="PackedScene" uid="uid://b3fycyaapy21n" path="res://Bomb/Bomb.tscn" id="3_6uqi0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyta"]
 size = Vector2(496, 20)
@@ -34,6 +35,8 @@ shape = SubResource("RectangleShape2D_ppyta")
 scale = Vector2(3.875, 0.15625)
 texture = ExtResource("2_6uqi0")
 
+[node name="Bomb" parent="." unique_id=563254750 instance=ExtResource("3_6uqi0")]
+position = Vector2(-784, 34)
 [node name="Enemies" type="Node" parent="." unique_id=462978352]
 
 [node name="Enemy" parent="Enemies" unique_id=664525115 instance=ExtResource("1_6uqi0")]
