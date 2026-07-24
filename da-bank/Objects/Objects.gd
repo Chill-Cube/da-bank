@@ -5,6 +5,7 @@ class_name PickUpObject
 @export var throw_force := 800.0
 @export var ground_friction := 2500.0
 @export var stop_threshold := 10.0
+@export var value := 0.0
 
 var trajectory_steps := 40
 var trajectory_step_time := 1.0 / 60.0
