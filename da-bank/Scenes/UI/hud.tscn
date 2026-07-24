@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://ly61atxdll68"]
+
+[ext_resource type="Script" uid="uid://bldnyls3itvuv" path="res://Scenes/UI/Scripts/label.gd" id="1_ne75i"]
+[ext_resource type="Script" uid="uid://b3ye21vqleawi" path="res://Scenes/UI/Scripts/money.gd" id="2_ny26j"]
+
+[node name="Hud" type="CanvasLayer" unique_id=466858541]
+
+[node name="Time" type="Label" parent="." unique_id=68753637]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -62.5
+offset_right = 62.5
+offset_bottom = 68.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 49
+text = "00:00"
+script = ExtResource("1_ne75i")
+
+[node name="Money" type="Label" parent="." unique_id=17168329]
+offset_right = 125.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 49
+text = "$100"
+script = ExtResource("2_ny26j")

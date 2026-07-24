@@ -1,10 +1,16 @@
 extends Character
 class_name Enemy
 
+@onready var health_bar := $Health
+
+var players = []
+var time = 0.0
+
 func _ready():
 	SPEED = 600.0
 	ACCELERATION = 0.05
 	animation_key = "Enemy"
+	super()
 
 func _physics_process(delta: float) -> void:
 	if get_parent().get_parent().get_node_or_null("Player"):
@@ -19,4 +25,20 @@ func _physics_process(delta: float) -> void:
 
 func _on_entered(body: Node2D) -> void:
 	if body is Player:
-		print("do the stuff")
+		players.append(body)
+
+func _process(delta: float) -> void:
+	health_bar.max_value = MAX_HEALTH
+	health_bar.value = HEALTH
+	if time >= 1.0:
+		time = 0.0
+	if time == 0.0:
+		for i in players:
+			i.MONEY -= 1.0
+	time += delta
+
+
+func _on_exited(body: Node2D) -> void:
+	if body is Player:
+		if players.has(body):
+			players.erase(body)

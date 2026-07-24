@@ -14,5 +14,5 @@ func _ready() -> void:
 	SignalBus._bomb_time_updated.connect(update_time)
 
 func update_time(time : float) -> void:
-	print("hey")
+	#print("hey")
 	text = format_time(time)

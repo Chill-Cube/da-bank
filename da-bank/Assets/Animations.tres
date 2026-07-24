@@ -1,7 +1,7 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://8s02amvmx7qs"]
 
-[ext_resource type="Texture2D" uid="uid://byjn58gd0dnb4" path="res://police.tres" id="2_8rfqv"]
-[ext_resource type="Texture2D" uid="uid://ciadxixp7g4a4" path="res://milly.tres" id="3_kmra8"]
+[ext_resource type="Texture2D" uid="uid://byjn58gd0dnb4" path="res://Assets/police.tres" id="2_8rfqv"]
+[ext_resource type="Texture2D" uid="uid://ciadxixp7g4a4" path="res://Assets/milly.tres" id="3_kmra8"]
 
 [resource]
 animations = [{

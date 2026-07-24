@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://db51f78xwt0ci"]
 
-[ext_resource type="Script" path="res://Player/Scripts/Player.gd" id="1_tok1r"]
-[ext_resource type="PackedScene" uid="uid://cirdkc8w460e2" path="res://Player/Particles.tscn" id="2_q3lat"]
+[ext_resource type="Script" uid="uid://cwkqfxjlvj00w" path="res://Scenes/Characters/Scripts/Player.gd" id="1_tok1r"]
+[ext_resource type="PackedScene" uid="uid://cirdkc8w460e2" path="res://Scenes/Characters/Particles.tscn" id="2_q3lat"]
 [ext_resource type="SpriteFrames" uid="uid://8s02amvmx7qs" path="res://Assets/Animations.tres" id="2_tok1r"]
-[ext_resource type="Script" uid="uid://cljl4d0j55i5m" path="res://Player/Scripts/camera_pivot.gd" id="3_tok1r"]
-[ext_resource type="PackedScene" uid="uid://ly61atxdll68" path="res://UI/hud.tscn" id="4_ddoul"]
+[ext_resource type="Script" uid="uid://cljl4d0j55i5m" path="res://Scenes/Characters/Scripts/camera_pivot.gd" id="3_tok1r"]
+[ext_resource type="PackedScene" uid="uid://ly61atxdll68" path="res://Scenes/UI/hud.tscn" id="4_ddoul"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tok1r"]
 radius = 58.0
