@@ -12,8 +12,9 @@ radius = 39.0
 height = 80.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=140440757]
+z_index = -1
 collision_layer = 4
-collision_mask = 5
+collision_mask = 4
 script = ExtResource("1_2uv53")
 weight = 200.0
 
@@ -24,3 +25,5 @@ texture = SubResource("AtlasTexture_2uv53")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=17973656]
 position = Vector2(-1, 20)
 shape = SubResource("CapsuleShape2D_2uv53")
+
+[node name="TrajectoryLine" type="Line2D" parent="." unique_id=1012954448]
