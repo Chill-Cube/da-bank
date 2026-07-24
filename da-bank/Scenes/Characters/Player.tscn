@@ -34,6 +34,6 @@ script = ExtResource("3_tok1r")
 
 [node name="Camera2D" type="Camera2D" parent="CameraPivot" unique_id=1784772064]
 offset = Vector2(0, -75)
-zoom = Vector2(0.775, 0.775)
+zoom = Vector2(0.43, 0.43)
 
 [node name="Hud" parent="." unique_id=466858541 instance=ExtResource("4_ddoul")]
