@@ -3,6 +3,7 @@ class_name Player
 
 @export var MONEY := 100.0
 var hold_object : PickUpObject = null
+var min_distance := 250.0
 
 func _ready():
 	animation_key = "Player"
@@ -14,7 +15,6 @@ func _physics_process(delta: float) -> void:
 
 	var direction := Input.get_axis("left", "right")
 	vel.x = direction * SPEED
-
 	super(delta)
 
 func find_closest_pickup(from_position: Vector2) -> PickUpObject:
@@ -24,7 +24,7 @@ func find_closest_pickup(from_position: Vector2) -> PickUpObject:
 
 	for pickup in pickups:
 		var dist := from_position.distance_to(pickup.global_position)
-		if dist < closest_dist:
+		if dist < closest_dist and dist < min_distance:
 			closest_dist = dist
 			closest = pickup
 
@@ -33,7 +33,6 @@ func find_closest_pickup(from_position: Vector2) -> PickUpObject:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pick_up"):
 		var nearest := find_closest_pickup(global_position)
-		print(nearest, hold_object)
 		if nearest and hold_object == null:
 			SignalBus._pick_up_object.emit(self, nearest)
 			hold_object = nearest

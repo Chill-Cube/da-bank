@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://db51f78xwt0ci" path="res://Scenes/Characters/Player.tscn" id="1_8uh7m"]
 [ext_resource type="Texture2D" uid="uid://c71b562ru51vu" path="res://icon.svg" id="2_6uqi0"]
 [ext_resource type="PackedScene" uid="uid://b3fycyaapy21n" path="res://Scenes/Gameplay/Bomb.tscn" id="3_6uqi0"]
-[ext_resource type="PackedScene" uid="uid://bkyy2u1p52y3b" path="res://Scenes/Gameplay/MoneyBag.tscn" id="4_qnhm0"]
+[ext_resource type="PackedScene" uid="uid://12bmw46s6lsm" path="res://Objects/ObjectTemplate.tscn" id="4_qnhm0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyta"]
 size = Vector2(496, 20)
@@ -38,6 +38,6 @@ texture = ExtResource("2_6uqi0")
 [node name="Bomb" parent="." unique_id=563254750 instance=ExtResource("3_6uqi0")]
 position = Vector2(-784, 34)
 
-[node name="FfffUntitledArtwork" parent="." unique_id=1644502247 instance=ExtResource("4_qnhm0")]
-position = Vector2(-269, 45)
-scale = Vector2(1.3973684, 1.3973684)
+[node name="CharacterBody2D" parent="." unique_id=140440757 instance=ExtResource("4_qnhm0")]
+position = Vector2(-416, 40)
+scale = Vector2(1.3663404, 1.3663404)
