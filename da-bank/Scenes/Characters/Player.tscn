@@ -23,6 +23,7 @@ sprite_frames = ExtResource("2_tok1r")
 animation = &"PlayerFall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2026365785]
+visible = false
 shape = SubResource("CapsuleShape2D_tok1r")
 
 [node name="Particles" parent="." unique_id=329845650 instance=ExtResource("2_q3lat")]

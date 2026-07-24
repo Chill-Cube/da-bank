@@ -23,6 +23,7 @@ sprite_frames = ExtResource("2_nxmrh")
 animation = &"EnemyIdle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2026365785]
+visible = false
 shape = SubResource("CapsuleShape2D_tok1r")
 
 [node name="Particles" parent="." unique_id=329845650 instance=ExtResource("3_qp4pf")]
@@ -30,6 +31,7 @@ shape = SubResource("CapsuleShape2D_tok1r")
 [node name="Area2D" type="Area2D" parent="." unique_id=507733578]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1245089522]
+visible = false
 shape = SubResource("CapsuleShape2D_nxmrh")
 
 [node name="Health" type="ProgressBar" parent="." unique_id=249780495]
