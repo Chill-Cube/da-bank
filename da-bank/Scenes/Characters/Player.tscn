@@ -12,6 +12,7 @@ height = 174.0
 
 [node name="Player" type="CharacterBody2D" unique_id=664525115]
 script = ExtResource("1_tok1r")
+MONEY = 0.0
 SPEED = 1000.0
 JUMP_VELOCITY = -700.0
 
@@ -20,7 +21,7 @@ texture_filter = 1
 position = Vector2(3, -1)
 scale = Vector2(0.9062499, 0.87999994)
 sprite_frames = ExtResource("2_tok1r")
-animation = &"PlayerFall"
+animation = &"PlayerMove"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2026365785]
 shape = SubResource("CapsuleShape2D_tok1r")
@@ -30,9 +31,10 @@ shape = SubResource("CapsuleShape2D_tok1r")
 [node name="CameraPivot" type="Node2D" parent="." unique_id=1179780325]
 top_level = true
 script = ExtResource("3_tok1r")
+follow_speed = 0.1
 
 [node name="Camera2D" type="Camera2D" parent="CameraPivot" unique_id=1784772064]
 offset = Vector2(0, -75)
-zoom = Vector2(0.775, 0.775)
+zoom = Vector2(0.4, 0.4)
 
 [node name="Hud" parent="." unique_id=466858541 instance=ExtResource("4_ddoul")]

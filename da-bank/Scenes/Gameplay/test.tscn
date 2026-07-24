@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dovt14prhx120"]
 
-[ext_resource type="PackedScene" uid="uid://btyod4aak0ct3" path="res://Scenes/Characters/Enemy.tscn" id="1_6uqi0"]
 [ext_resource type="PackedScene" uid="uid://db51f78xwt0ci" path="res://Scenes/Characters/Player.tscn" id="1_8uh7m"]
 [ext_resource type="Texture2D" uid="uid://c71b562ru51vu" path="res://icon.svg" id="2_6uqi0"]
 [ext_resource type="PackedScene" uid="uid://b3fycyaapy21n" path="res://Scenes/Gameplay/Bomb.tscn" id="3_6uqi0"]
+[ext_resource type="PackedScene" uid="uid://bkyy2u1p52y3b" path="res://Scenes/Gameplay/MoneyBag.tscn" id="4_qnhm0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyta"]
 size = Vector2(496, 20)
@@ -38,10 +38,6 @@ texture = ExtResource("2_6uqi0")
 [node name="Bomb" parent="." unique_id=563254750 instance=ExtResource("3_6uqi0")]
 position = Vector2(-784, 34)
 
-[node name="Enemies" type="Node" parent="." unique_id=462978352]
-
-[node name="Enemy" parent="Enemies" unique_id=664525115 instance=ExtResource("1_6uqi0")]
-position = Vector2(-511, 11)
-
-[node name="Enemy2" parent="Enemies" unique_id=2043618634 instance=ExtResource("1_6uqi0")]
-position = Vector2(492, -23)
+[node name="FfffUntitledArtwork" parent="." unique_id=1644502247 instance=ExtResource("4_qnhm0")]
+position = Vector2(-269, 45)
+scale = Vector2(1.3973684, 1.3973684)
