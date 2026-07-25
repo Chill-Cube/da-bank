@@ -6,10 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://12bmw46s6lsm" path="res://Objects/ObjectTemplate.tscn" id="4_qnhm0"]
 [ext_resource type="PackedScene" uid="uid://cqjudepyt4e7f" path="res://Scenes/Gameplay/pick_up_truck.tscn" id="5_ywpx5"]
 [ext_resource type="PackedScene" uid="uid://cng57svuqmbja" path="res://Scenes/Gameplay/vault.tscn" id="6_g6muf"]
-[ext_resource type="Script" uid="uid://bifeptcshe5to" path="res://Scenes/Gameplay/animation_player.gd" id="7_ga7i2"]
-[ext_resource type="Script" uid="uid://dkex5lbj4bmse" path="res://Scenes/Gameplay/area_2d.gd" id="8_6c0xd"]
-[ext_resource type="PackedScene" uid="uid://q3gsivj82hu5" path="res://Scenes/Gameplay/Spawner.tscn" id="9_6c8aw"]
-[ext_resource type="Texture2D" uid="uid://bvl2cet4ih4k7" path="res://Assets/Items.png" id="10_nrrav"]
+[ext_resource type="Script" path="res://Scenes/Gameplay/animation_player.gd" id="7_ga7i2"]
+[ext_resource type="Script" path="res://Scenes/Gameplay/area_2d.gd" id="8_6c0xd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyta"]
 size = Vector2(1341.3093, 20)

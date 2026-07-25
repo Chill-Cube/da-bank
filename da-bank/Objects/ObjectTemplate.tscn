@@ -11,6 +11,9 @@ region = Rect2(36, 384.5, 90, 117)
 radius = 36.0
 height = 78.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2uv53"]
+size = Vector2(62, 42)
+
 [node name="Object" type="CharacterBody2D" unique_id=140440757]
 z_index = -1
 collision_layer = 4
@@ -27,3 +30,11 @@ position = Vector2(-1, 20)
 shape = SubResource("CapsuleShape2D_2uv53")
 
 [node name="TrajectoryLine" type="Line2D" parent="." unique_id=1012954448]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=49365362]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1432926929]
+position = Vector2(-1, 41)
+shape = SubResource("RectangleShape2D_2uv53")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
