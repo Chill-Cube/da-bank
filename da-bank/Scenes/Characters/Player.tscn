@@ -16,7 +16,6 @@ height = 174.0
 
 [node name="Player" type="CharacterBody2D" unique_id=664525115]
 script = ExtResource("1_tok1r")
-MONEY = 0.0
 SPEED = 1000.0
 JUMP_VELOCITY = -700.0
 
@@ -42,6 +41,7 @@ offset = Vector2(0, -75)
 zoom = Vector2(0.4, 0.4)
 
 [node name="Hud" parent="." unique_id=466858541 instance=ExtResource("4_ddoul")]
+visible = false
 
 [node name="equip" type="AudioStreamPlayer" parent="." unique_id=249398973]
 stream = ExtResource("6_qkgjm")

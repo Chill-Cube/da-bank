@@ -52,9 +52,9 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 3.0333333),
-"transitions": PackedFloat32Array(1, 0.17677669),
+"transitions": PackedFloat32Array(0.24148421, 0.24148421),
 "update": 0,
-"values": [Vector2(-3464, -61), Vector2(-1411, -61)]
+"values": [Vector2(-3464, -203), Vector2(-1106, -203)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -64,9 +64,9 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 3.0333333),
-"transitions": PackedFloat32Array(1, 0.17677669),
+"transitions": PackedFloat32Array(0.24148421, 0.24148421),
 "update": 0,
-"values": [Vector2(-3383, -110), Vector2(-1330, -110)]
+"values": [Vector2(-3482, -203), Vector2(-1124, -203)]
 }
 
 [sub_resource type="Animation" id="Animation_nrrav"]
@@ -79,10 +79,38 @@ tracks/0/path = NodePath("Truck:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3.0333333),
-"transitions": PackedFloat32Array(3.6049953, 3.6049953),
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
 "update": 0,
-"values": [Vector2(-1411, -61), Vector2(-3464, -61)]
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_qoumo"]
+resource_name = "leave2"
+length = 3.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Truck:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.0333333),
+"transitions": PackedFloat32Array(6.06286, 6.06286),
+"update": 0,
+"values": [Vector2(-1106, -203), Vector2(-3464, -203)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -92,16 +120,17 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 3.0333333),
-"transitions": PackedFloat32Array(3.6049953, 3.6049953),
+"transitions": PackedFloat32Array(6.06286, 6.06286),
 "update": 0,
-"values": [Vector2(-1330, -110), Vector2(-3383, -110)]
+"values": [Vector2(-1124, -203), Vector2(-3482, -203)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nrrav"]
 _data = {
 &"RESET": SubResource("Animation_6c0xd"),
 &"enter": SubResource("Animation_6c8aw"),
-&"leave": SubResource("Animation_nrrav")
+&"leave": SubResource("Animation_nrrav"),
+&"leave2": SubResource("Animation_qoumo")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6c8aw"]
@@ -190,8 +219,8 @@ z_index = -2
 position = Vector2(-1411, -61)
 
 [node name="Vault9000" parent="." unique_id=1486326053 instance=ExtResource("6_g6muf")]
-position = Vector2(3040, -313)
-scale = Vector2(3.388867, 2.828221)
+position = Vector2(2913, -426)
+scale = Vector2(7.245283, 7.155976)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=33372672]
 libraries/ = SubResource("AnimationLibrary_nrrav")

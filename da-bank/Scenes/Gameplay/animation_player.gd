@@ -9,4 +9,4 @@ func _ready() -> void:
 	SignalBus._leave_cutscene.connect(leave)
 	
 func leave():
-	play("leave")
+	play("leave2")

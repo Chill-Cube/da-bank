@@ -1,16 +1,23 @@
 [gd_scene format=3 uid="uid://cqjudepyt4e7f"]
 
-[ext_resource type="Texture2D" uid="uid://ct0l27fvjokop" path="res://Assets/Untitled.png" id="1_i1qvc"]
+[ext_resource type="Texture2D" uid="uid://lo6qn3ikdes4" path="res://Assets/important_images.png" id="2_rxx4s"]
 [ext_resource type="Script" uid="uid://c8nupj4uuwia2" path="res://Scenes/Gameplay/truck.gd" id="2_upjpt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1qvc"]
-size = Vector2(272, 26)
+size = Vector2(413, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2haq"]
+atlas = ExtResource("2_rxx4s")
+region = Rect2(37, 45.5, 328, 150)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upjpt"]
-size = Vector2(289, 65)
+size = Vector2(710.5, 189)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxx4s"]
-size = Vector2(225, 180.5)
+size = Vector2(302, 203.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxuj3"]
+size = Vector2(218, 213)
 
 [node name="Area2D" type="Area2D" unique_id=261016439]
 collision_layer = 5
@@ -18,25 +25,31 @@ collision_mask = 5
 script = ExtResource("2_upjpt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1327968943]
-position = Vector2(81.99999, 17.999985)
+position = Vector2(-21.500008, 74)
 scale = Vector2(1, 0.9999999)
 shape = SubResource("RectangleShape2D_i1qvc")
 
 [node name="Truck" type="Sprite2D" parent="." unique_id=919585520]
-scale = Vector2(1.1871165, 1.1871166)
-texture = ExtResource("1_i1qvc")
+texture_filter = 1
+position = Vector2(-296, 116)
+scale = Vector2(2.9433892, 2.9433897)
+texture = SubResource("AtlasTexture_j2haq")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=906421012]
 collision_layer = 5
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1832466045]
-position = Vector2(79.5, 68)
+position = Vector2(-170.25, 178.5)
 shape = SubResource("RectangleShape2D_upjpt")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=432457482]
-position = Vector2(-166.5, 10.25)
+position = Vector2(-380, 0.625)
 shape = SubResource("RectangleShape2D_rxx4s")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=545674073]
+position = Vector2(-636, 162.5)
+shape = SubResource("RectangleShape2D_vxuj3")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
