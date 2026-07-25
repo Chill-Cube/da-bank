@@ -14,3 +14,10 @@ func _on_body_entered(body: Node2D) -> void:
 	print(body)
 	if body is PickUpObject:
 		SignalBus._object_in_truck.emit(body.value, body)
+		
+	if body is Player:
+		if GameState.current_state != GameState.State.STEALING: return
+		
+		GameState.change_state(GameState.State.LEAVING)
+		SignalBus._play_bars.emit()
+		SignalBus._play_cutscene.emit(20)
