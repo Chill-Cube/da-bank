@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cqjudepyt4e7f"]
+
+[ext_resource type="Texture2D" uid="uid://ct0l27fvjokop" path="res://Assets/Untitled.png" id="1_i1qvc"]
+[ext_resource type="Script" uid="uid://c8nupj4uuwia2" path="res://Scenes/Gameplay/truck.gd" id="2_upjpt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1qvc"]
+size = Vector2(240.91989, 226.00003)
+
+[node name="Area2D" type="Area2D" unique_id=261016439]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("2_upjpt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1327968943]
+position = Vector2(71.60207, -82.000015)
+scale = Vector2(1, 0.9999999)
+shape = SubResource("RectangleShape2D_i1qvc")
+
+[node name="Truck" type="Sprite2D" parent="." unique_id=919585520]
+scale = Vector2(1.1871165, 1.1871166)
+texture = ExtResource("1_i1qvc")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

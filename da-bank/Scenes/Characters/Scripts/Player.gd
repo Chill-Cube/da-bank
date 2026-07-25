@@ -7,6 +7,7 @@ var min_distance := 250.0
 
 func _ready():
 	animation_key = "Player"
+	SignalBus._object_in_truck.connect(get_money)
 	super()
 
 func _physics_process(delta: float) -> void:
@@ -29,6 +30,9 @@ func find_closest_pickup(from_position: Vector2) -> PickUpObject:
 			closest = pickup
 
 	return closest
+	
+func get_money(money : float) -> void:
+	MONEY += money
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pick_up"):
