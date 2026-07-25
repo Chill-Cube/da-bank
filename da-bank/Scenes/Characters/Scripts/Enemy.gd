@@ -5,6 +5,7 @@ class_name Enemy
 
 var players = []
 var time = 0.0
+var damage := 3.0
 
 func _ready():
 	SPEED = 600.0
@@ -32,11 +33,11 @@ func _on_entered(body: Node2D) -> void:
 func _process(delta: float) -> void:
 	health_bar.max_value = MAX_HEALTH
 	health_bar.value = HEALTH
-	if time >= 1.0:
+	if time >= 0.5:
 		time = 0.0
 	if time == 0.0:
 		for i in players:
-			i.HEALTH -= 1.0
+			i.HEALTH -= damage
 	time += delta
 	if HEALTH <= 0.0:
 		queue_free()

@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bgcyeflctqoam" path="res://Scenes/UI/objective.gd" id="2_fdl0h"]
 [ext_resource type="Script" uid="uid://b3ye21vqleawi" path="res://Scenes/UI/Scripts/money.gd" id="2_ny26j"]
 [ext_resource type="Script" uid="uid://738b6v6ayigj" path="res://Scenes/UI/letterbox.gd" id="5_vsu76"]
+[ext_resource type="Script" uid="uid://dv3tkuk6dwobp" path="res://Scenes/UI/health_2.gd" id="6_ux5h0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ny26j"]
 bg_color = Color(0, 0, 0, 1)
@@ -98,7 +99,6 @@ _data = {
 }
 
 [node name="Hud" type="CanvasLayer" unique_id=466858541]
-visible = false
 script = ExtResource("1_8glcj")
 
 [node name="Time" type="Label" parent="." unique_id=68753637]
@@ -107,9 +107,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -50.0
-offset_top = 2.0
+offset_top = 53.0
 offset_right = 75.0
-offset_bottom = 70.0
+offset_bottom = 121.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 49
 text = "00:00"
@@ -119,30 +119,35 @@ script = ExtResource("1_ne75i")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -441.5
-offset_top = 580.0
-offset_right = 466.5
-offset_bottom = 648.0
+offset_left = -435.0
+offset_top = 1.0
+offset_right = 473.0
+offset_bottom = 69.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 49
+theme_override_font_sizes/font_size = 40
 text = "Go into the bank"
 horizontal_alignment = 1
 script = ExtResource("2_fdl0h")
 
 [node name="Money" type="Label" parent="." unique_id=17168329]
-offset_right = 125.0
-offset_bottom = 68.0
-theme_override_font_sizes/font_size = 49
+offset_left = 535.0
+offset_top = 535.0
+offset_right = 660.0
+offset_bottom = 586.0
+theme_override_font_sizes/font_size = 37
 text = "$100"
+horizontal_alignment = 1
 script = ExtResource("2_ny26j")
 
 [node name="Panel" type="Panel" parent="." unique_id=316268399]
+z_index = 4
 offset_top = 647.0
 offset_right = 1152.0
 offset_bottom = 863.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ny26j")
 
 [node name="Panel2" type="Panel" parent="." unique_id=890801308]
+z_index = 4
 offset_top = -118.0
 offset_right = 1152.0
 offset_bottom = 2.0
@@ -151,3 +156,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ny26j")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=335104040]
 libraries/ = SubResource("AnimationLibrary_vsu76")
 script = ExtResource("5_vsu76")
+
+[node name="Health2" type="ProgressBar" parent="." unique_id=656652960]
+offset_left = 329.0
+offset_top = 588.0
+offset_right = 862.3333
+offset_bottom = 641.0
+theme_override_font_sizes/font_size = 35
+script = ExtResource("6_ux5h0")

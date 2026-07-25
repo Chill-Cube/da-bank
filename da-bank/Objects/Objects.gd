@@ -123,4 +123,4 @@ func _update_trajectory_preview(player: Player) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if thrown:
 		if body is Enemy:
-			body.HEALTH -= weight/35.0
+			body.HEALTH -= (weight/35.0) * 4
