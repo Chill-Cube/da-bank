@@ -20,4 +20,5 @@ func _on_body_entered(body: Node2D) -> void:
 		
 		GameState.change_state(GameState.State.LEAVING)
 		SignalBus._play_bars.emit()
+		SignalBus._leave_cutscene.emit()
 		SignalBus._play_cutscene.emit(20)
