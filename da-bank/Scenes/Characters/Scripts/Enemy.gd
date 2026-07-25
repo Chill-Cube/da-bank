@@ -33,7 +33,7 @@ func _on_entered(body: Node2D) -> void:
 func _process(delta: float) -> void:
 	health_bar.max_value = MAX_HEALTH
 	health_bar.value = HEALTH
-	if time >= 1.0:
+	if time >= 0.5:
 		time = 0.0
 	if time == 0.0:
 		for i in players:
