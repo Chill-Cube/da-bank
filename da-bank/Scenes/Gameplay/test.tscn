@@ -186,7 +186,7 @@ value = 100.0
 position = Vector2(1796, 35)
 
 [node name="Truck" parent="." unique_id=919585520 instance=ExtResource("5_ywpx5")]
-z_index = -1
+z_index = -2
 position = Vector2(-1411, -61)
 
 [node name="Vault9000" parent="." unique_id=1486326053 instance=ExtResource("6_g6muf")]
