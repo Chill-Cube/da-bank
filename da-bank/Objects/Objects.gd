@@ -22,7 +22,12 @@ var aim_direction := Vector2.RIGHT
 func _ready() -> void:
 	SignalBus._pick_up_object.connect(pick_up)
 	SignalBus._put_down_object.connect(put_down)
+	SignalBus._object_in_truck.connect(object_sold)
 	add_to_group("pickups")
+	
+func object_sold(_money : float, object : PickUpObject) -> void:
+	if object == self:
+		queue_free()
 
 func pick_up(player: Player, object: Node2D) -> void:
 	if object != self:
@@ -55,7 +60,7 @@ func put_down(player: Player, object: Node2D) -> void:
 
 func _physics_process(delta: float) -> void:
 	if holder != null:
-		global_position = holder.global_position - offset
+		global_position = lerp(global_position, holder.global_position - offset, 0.3)
 
 		var dir := get_global_mouse_position() - global_position
 		if dir.length_squared() > 0.000001:
