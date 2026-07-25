@@ -38,6 +38,8 @@ func get_money(money : float, _object : PickUpObject) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pick_up"):
 		var nearest := find_closest_pickup(global_position)
+		if nearest is Bomb and GameState.current_state != GameState.State.PLANTING: return
+		
 		if nearest and hold_object == null:
 			$equip.play()
 			SignalBus._pick_up_object.emit(self, nearest)

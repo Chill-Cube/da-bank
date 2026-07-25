@@ -6,14 +6,80 @@
 [ext_resource type="PackedScene" uid="uid://12bmw46s6lsm" path="res://Objects/ObjectTemplate.tscn" id="4_qnhm0"]
 [ext_resource type="PackedScene" uid="uid://cqjudepyt4e7f" path="res://Scenes/Gameplay/pick_up_truck.tscn" id="5_ywpx5"]
 [ext_resource type="PackedScene" uid="uid://cng57svuqmbja" path="res://Scenes/Gameplay/vault.tscn" id="6_g6muf"]
+[ext_resource type="Script" uid="uid://bifeptcshe5to" path="res://Scenes/Gameplay/animation_player.gd" id="7_ga7i2"]
+[ext_resource type="Script" uid="uid://dkex5lbj4bmse" path="res://Scenes/Gameplay/area_2d.gd" id="8_6c0xd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyta"]
 size = Vector2(496, 20)
 
+[sub_resource type="Animation" id="Animation_6c0xd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Truck:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1411, -61)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1330, -110)]
+}
+
+[sub_resource type="Animation" id="Animation_6c8aw"]
+resource_name = "enter"
+length = 3.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Truck:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.0333333),
+"transitions": PackedFloat32Array(1, 0.17677669),
+"update": 0,
+"values": [Vector2(-3464, -61), Vector2(-1411, -61)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.0333333),
+"transitions": PackedFloat32Array(1, 0.17677669),
+"update": 0,
+"values": [Vector2(-3383, -110), Vector2(-1330, -110)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nrrav"]
+_data = {
+&"RESET": SubResource("Animation_6c0xd"),
+&"enter": SubResource("Animation_6c8aw")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6c8aw"]
+size = Vector2(122, 754.5)
+
 [node name="Node2D" type="Node2D" unique_id=1374149594]
 
 [node name="Player" parent="." unique_id=1380629138 instance=ExtResource("1_8uh7m")]
-position = Vector2(27, 36)
+position = Vector2(-1330, -110)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=343373614]
 position = Vector2(0, 160.535)
@@ -29,20 +95,20 @@ scale = Vector2(3.875, 0.15625)
 texture = ExtResource("2_6uqi0")
 
 [node name="CharacterBody2D" parent="." unique_id=140440757 instance=ExtResource("4_qnhm0")]
-position = Vector2(-415, 45)
+position = Vector2(1150, 45)
 scale = Vector2(1.3663404, 1.3663404)
 value = 50.0
 
 [node name="CharacterBody2D2" parent="." unique_id=1823038618 instance=ExtResource("4_qnhm0")]
 modulate = Color(0.9982986, 0.75771075, 1, 1)
-position = Vector2(-226, -24.999992)
+position = Vector2(1338.9999, -24.999992)
 scale = Vector2(2.7072008, 2.7072008)
 weight = 600.0
 value = 500.0
 
 [node name="CharacterBody2D3" parent="." unique_id=1298280181 instance=ExtResource("4_qnhm0")]
 modulate = Color(1, 1, 0.80784315, 1)
-position = Vector2(-561, 24)
+position = Vector2(1004, 24)
 scale = Vector2(1.7653941, 1.7653941)
 weight = 350.0
 value = 100.0
@@ -51,9 +117,24 @@ value = 100.0
 position = Vector2(389, 35)
 
 [node name="Truck" parent="." unique_id=919585520 instance=ExtResource("5_ywpx5")]
-position = Vector2(-1340, -61)
+z_index = -1
+position = Vector2(-1411, -61)
 
 [node name="Vault9000" parent="." unique_id=1486326053 instance=ExtResource("6_g6muf")]
 position = Vector2(1226, -132.99998)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=33372672]
+libraries/ = SubResource("AnimationLibrary_nrrav")
+script = ExtResource("7_ga7i2")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=868960163]
+script = ExtResource("8_6c0xd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1245403031]
+position = Vector2(212, -253)
+shape = SubResource("RectangleShape2D_6c8aw")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+
+[editable path="Player"]
 [editable path="Bomb"]
