@@ -2,11 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://db51f78xwt0ci" path="res://Scenes/Characters/Player.tscn" id="1_8uh7m"]
 [ext_resource type="Texture2D" uid="uid://c71b562ru51vu" path="res://icon.svg" id="2_6uqi0"]
-[ext_resource type="PackedScene" uid="uid://b3fycyaapy21n" path="res://Scenes/Gameplay/Bomb.tscn" id="3_6uqi0"]
 [ext_resource type="PackedScene" uid="uid://12bmw46s6lsm" path="res://Objects/ObjectTemplate.tscn" id="4_qnhm0"]
+[ext_resource type="PackedScene" uid="uid://btyod4aak0ct3" path="res://Scenes/Characters/Enemy.tscn" id="5_g6muf"]
+[ext_resource type="Texture2D" uid="uid://cjx38e8unccgk" path="res://Assets/Untisdftled_Artwork.png" id="5_ywpx5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyta"]
 size = Vector2(496, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6muf"]
+atlas = ExtResource("5_ywpx5")
+region = Rect2(217, 105.5, 84, 195)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ga7i2"]
+radius = 36.0
+height = 122.0
 
 [node name="Node2D" type="Node2D" unique_id=1374149594]
 
@@ -26,9 +35,20 @@ shape = SubResource("RectangleShape2D_ppyta")
 scale = Vector2(3.875, 0.15625)
 texture = ExtResource("2_6uqi0")
 
-[node name="Bomb" parent="." unique_id=563254750 instance=ExtResource("3_6uqi0")]
-position = Vector2(-784, 34)
-
 [node name="CharacterBody2D" parent="." unique_id=140440757 instance=ExtResource("4_qnhm0")]
 position = Vector2(-416, 40)
 scale = Vector2(1.3663404, 1.3663404)
+
+[node name="Object" parent="." unique_id=346593500 instance=ExtResource("4_qnhm0")]
+position = Vector2(563, 22)
+
+[node name="Visual" parent="Object" index="0" unique_id=1938035943]
+texture = SubResource("AtlasTexture_g6muf")
+
+[node name="CollisionShape2D" parent="Object" index="1" unique_id=17973656]
+shape = SubResource("CapsuleShape2D_ga7i2")
+
+[node name="Enemy" parent="." unique_id=664525115 instance=ExtResource("5_g6muf")]
+position = Vector2(-835, 25)
+
+[editable path="Object"]
