@@ -1,21 +1,133 @@
 [gd_scene format=3 uid="uid://ly61atxdll68"]
 
+[ext_resource type="Script" uid="uid://bg6rahl0csx10" path="res://Scenes/UI/hud.gd" id="1_8glcj"]
 [ext_resource type="Script" uid="uid://bldnyls3itvuv" path="res://Scenes/UI/Scripts/label.gd" id="1_ne75i"]
+[ext_resource type="Script" uid="uid://bgcyeflctqoam" path="res://Scenes/UI/objective.gd" id="2_fdl0h"]
 [ext_resource type="Script" uid="uid://b3ye21vqleawi" path="res://Scenes/UI/Scripts/money.gd" id="2_ny26j"]
+[ext_resource type="Script" uid="uid://738b6v6ayigj" path="res://Scenes/UI/letterbox.gd" id="5_vsu76"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ny26j"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_fdl0h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -118)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 647)]
+}
+
+[sub_resource type="Animation" id="Animation_8glcj"]
+resource_name = "letter_boxing"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.21763767, 0.21763767),
+"update": 0,
+"values": [Vector2(0, -118), Vector2(0, -2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.21763767, 0.21763767),
+"update": 0,
+"values": [Vector2(0, 647), Vector2(0, 510)]
+}
+
+[sub_resource type="Animation" id="Animation_ny26j"]
+resource_name = "normal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96666664),
+"transitions": PackedFloat32Array(0.21763767, 0.21763767),
+"update": 0,
+"values": [Vector2(0, -2), Vector2(0, -118)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.96666664),
+"transitions": PackedFloat32Array(0.21763767, 0.21763767),
+"update": 0,
+"values": [Vector2(0, 510), Vector2(0, 647)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vsu76"]
+_data = {
+&"RESET": SubResource("Animation_fdl0h"),
+&"letter_boxing": SubResource("Animation_8glcj"),
+&"normal": SubResource("Animation_ny26j")
+}
 
 [node name="Hud" type="CanvasLayer" unique_id=466858541]
+visible = false
+script = ExtResource("1_8glcj")
 
 [node name="Time" type="Label" parent="." unique_id=68753637]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -62.5
-offset_right = 62.5
-offset_bottom = 68.0
+offset_left = -50.0
+offset_top = 2.0
+offset_right = 75.0
+offset_bottom = 70.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 49
 text = "00:00"
 script = ExtResource("1_ne75i")
+
+[node name="Objective" type="Label" parent="." unique_id=1052646417]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -441.5
+offset_top = 580.0
+offset_right = 466.5
+offset_bottom = 648.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 49
+text = "Go into the bank"
+horizontal_alignment = 1
+script = ExtResource("2_fdl0h")
 
 [node name="Money" type="Label" parent="." unique_id=17168329]
 offset_right = 125.0
@@ -23,3 +135,19 @@ offset_bottom = 68.0
 theme_override_font_sizes/font_size = 49
 text = "$100"
 script = ExtResource("2_ny26j")
+
+[node name="Panel" type="Panel" parent="." unique_id=316268399]
+offset_top = 647.0
+offset_right = 1152.0
+offset_bottom = 782.0001
+theme_override_styles/panel = SubResource("StyleBoxFlat_ny26j")
+
+[node name="Panel2" type="Panel" parent="." unique_id=890801308]
+offset_top = -118.0
+offset_right = 1152.0
+offset_bottom = 2.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ny26j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=335104040]
+libraries/ = SubResource("AnimationLibrary_vsu76")
+script = ExtResource("5_vsu76")

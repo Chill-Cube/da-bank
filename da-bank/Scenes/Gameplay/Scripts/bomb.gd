@@ -10,9 +10,15 @@ func _plant_bomb() -> void:
 	ticking = true
 	$Fizz.play()
 	can_fall = false
+	GameState.change_state(GameState.State.DEFENDING)
+
+
+	SignalBus._play_bars.emit()
+	await(get_tree().create_timer(2).timeout) 
+	SignalBus._play_cutscene.emit(5)
 
 func pick_up(player: Player, object: Node2D) -> void:
-	if ticking:
+	if GameState.current_state != GameState.State.PLANTING:
 		return
 	else:
 		super.pick_up(player, object)
@@ -25,3 +31,4 @@ func _on_timer_timeout() -> void:
 	SignalBus._bomb_exploded.emit()
 	$Explosion.play()
 	$Visual.visible = false
+	GameState.change_state(GameState.State.STEALING)
