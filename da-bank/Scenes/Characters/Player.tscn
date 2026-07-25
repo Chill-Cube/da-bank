@@ -5,6 +5,10 @@
 [ext_resource type="SpriteFrames" uid="uid://8s02amvmx7qs" path="res://Assets/Animations.tres" id="2_tok1r"]
 [ext_resource type="Script" uid="uid://cljl4d0j55i5m" path="res://Scenes/Characters/Scripts/camera_pivot.gd" id="3_tok1r"]
 [ext_resource type="PackedScene" uid="uid://ly61atxdll68" path="res://Scenes/UI/hud.tscn" id="4_ddoul"]
+[ext_resource type="AudioStream" uid="uid://dqlpqcdbxhuim" path="res://SFX/518850__mrickey13__item-equip.mp3" id="6_qkgjm"]
+[ext_resource type="AudioStream" uid="uid://c24nrlh6whfw1" path="res://SFX/683101__florianreichelt__quick-woosh.mp3" id="7_w38he"]
+[ext_resource type="AudioStream" uid="uid://dela2kltrmc7u" path="res://SFX/196832__margo_heston__throw-f.wav" id="8_w38he"]
+[ext_resource type="AudioStream" uid="uid://bsmkf41o22bak" path="res://SFX/freesound_gamestudio-drop-coin-384921.mp3" id="9_meglp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tok1r"]
 radius = 58.0
@@ -38,3 +42,15 @@ offset = Vector2(0, -75)
 zoom = Vector2(0.4, 0.4)
 
 [node name="Hud" parent="." unique_id=466858541 instance=ExtResource("4_ddoul")]
+
+[node name="equip" type="AudioStreamPlayer" parent="." unique_id=249398973]
+stream = ExtResource("6_qkgjm")
+
+[node name="throw" type="AudioStreamPlayer" parent="." unique_id=222574279]
+stream = ExtResource("7_w38he")
+
+[node name="secret_throw" type="AudioStreamPlayer" parent="." unique_id=1817192404]
+stream = ExtResource("8_w38he")
+
+[node name="ching" type="AudioStreamPlayer" parent="." unique_id=1433656936]
+stream = ExtResource("9_meglp")
