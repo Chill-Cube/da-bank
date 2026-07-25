@@ -18,6 +18,7 @@ var vel := Vector2.ZERO
 
 func _ready():
 	HEALTH = MAX_HEALTH
+	speed_lines.texture = speed_lines.texture.duplicate()
 
 func animation_playing(animation: String) -> bool:
 	return sprite.animation == animation_key + animation and sprite.is_playing()

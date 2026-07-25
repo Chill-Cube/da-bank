@@ -4,6 +4,8 @@ class_name Player
 @export var MONEY := 0.0
 var hold_object : PickUpObject = null
 var min_distance := 250.0
+var double_jump := false
+var fallen := false
 
 func _ready():
 	animation_key = "Player"
@@ -11,7 +13,15 @@ func _ready():
 	super()
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if is_on_floor() and !jumping and !animation_playing("jump"):
+		fallen = false
+		double_jump = false
+	if !is_on_floor() and !fallen:
+		fallen = true
+		double_jump = true
+	if Input.is_action_just_pressed("jump") and is_on_floor() or double_jump and Input.is_action_just_pressed("jump"):
+		if !jumping:
+			double_jump = !double_jump
 		jumping = true
 
 	var direction := Input.get_axis("left", "right")
