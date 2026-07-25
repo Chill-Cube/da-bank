@@ -36,6 +36,8 @@ func _process(delta: float) -> void:
 		for i in players:
 			i.HEALTH -= 1.0
 	time += delta
+	if HEALTH <= 0.0:
+		queue_free()
 
 
 func _on_exited(body: Node2D) -> void:

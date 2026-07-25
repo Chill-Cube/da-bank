@@ -118,3 +118,9 @@ func _update_trajectory_preview(player: Player) -> void:
 		points.append(sim_pos - global_position)
 
 	trajectory_line.points = points
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if thrown:
+		if body is Enemy:
+			body.HEALTH -= weight/35.0

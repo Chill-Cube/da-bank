@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://12bmw46s6lsm" path="res://Objects/ObjectTemplate.tscn" id="4_qnhm0"]
 [ext_resource type="PackedScene" uid="uid://cqjudepyt4e7f" path="res://Scenes/Gameplay/pick_up_truck.tscn" id="5_ywpx5"]
 [ext_resource type="PackedScene" uid="uid://cng57svuqmbja" path="res://Scenes/Gameplay/vault.tscn" id="6_g6muf"]
-[ext_resource type="Script" uid="uid://bifeptcshe5to" path="res://Scenes/Gameplay/animation_player.gd" id="7_ga7i2"]
-[ext_resource type="Script" uid="uid://dkex5lbj4bmse" path="res://Scenes/Gameplay/area_2d.gd" id="8_6c0xd"]
+[ext_resource type="Script" path="res://Scenes/Gameplay/animation_player.gd" id="7_ga7i2"]
+[ext_resource type="Script" path="res://Scenes/Gameplay/area_2d.gd" id="8_6c0xd"]
+[ext_resource type="PackedScene" uid="uid://btyod4aak0ct3" path="res://Scenes/Characters/Enemy.tscn" id="9_6c8aw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyta"]
 size = Vector2(496, 20)
@@ -133,6 +134,10 @@ script = ExtResource("8_6c0xd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1245403031]
 position = Vector2(212, -253)
 shape = SubResource("RectangleShape2D_6c8aw")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=560834861]
+
+[node name="Enemy" parent="Node2D" unique_id=664525115 instance=ExtResource("9_6c8aw")]
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 
