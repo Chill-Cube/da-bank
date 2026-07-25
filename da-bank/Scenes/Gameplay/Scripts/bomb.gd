@@ -4,6 +4,7 @@ class_name Bomb
 @onready var timer : Timer = $Timer
 	
 func put_down(player: Player, object: Node2D) -> void:
+	if object != self: return
 	super.put_down(player, object)
 	timer.start()
 	
