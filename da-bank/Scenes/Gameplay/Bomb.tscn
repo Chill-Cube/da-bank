@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cwpnhcdc3eb40" path="res://Scenes/Gameplay/Scripts/bomb.gd" id="1_vlo8u"]
 [ext_resource type="Texture2D" uid="uid://cjx38e8unccgk" path="res://Assets/Untisdftled_Artwork.png" id="2_75bcl"]
+[ext_resource type="AudioStream" uid="uid://p7m8d7lv72dp" path="res://SFX/184519__soundslikewillem__fuse(1).wav" id="3_lwtvr"]
+[ext_resource type="AudioStream" uid="uid://cqv6w4xpogvoa" path="res://SFX/446624__idkmrgarcia__explosion2.wav" id="4_e3tmc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wpy5g"]
 atlas = ExtResource("2_75bcl")
@@ -29,3 +31,12 @@ position = Vector2(-1, 20)
 shape = SubResource("CapsuleShape2D_lwtvr")
 
 [node name="TrajectoryLine" type="Line2D" parent="." unique_id=1211634583]
+
+[node name="Fizz" type="AudioStreamPlayer" parent="." unique_id=1645765622]
+stream = ExtResource("3_lwtvr")
+volume_db = -14.596
+
+[node name="Explosion" type="AudioStreamPlayer" parent="." unique_id=1669628142]
+stream = ExtResource("4_e3tmc")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
