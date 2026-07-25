@@ -13,13 +13,41 @@ region = Rect2(221, 115.5, 82, 170)
 radius = 36.0
 height = 132.0
 
+[sub_resource type="Gradient" id="Gradient_e3tmc"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xtvwr"]
+gradient = SubResource("Gradient_e3tmc")
+width = 32
+height = 32
+
+[sub_resource type="Gradient" id="Gradient_lqqpt"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_3qydi"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uxp80"]
+gradient = SubResource("Gradient_3qydi")
+width = 24
+height = 24
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e3tmc"]
+gradient = SubResource("Gradient_3qydi")
+width = 24
+height = 24
+
+[sub_resource type="Gradient" id="Gradient_xtvwr"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="Bomb" type="CharacterBody2D" unique_id=814096386]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_vlo8u")
 
 [node name="Timer" type="Timer" parent="." unique_id=1880891319]
-wait_time = 30.0
 one_shot = true
 
 [node name="Visual" type="Sprite2D" parent="." unique_id=911913313]
@@ -38,5 +66,58 @@ volume_db = -14.596
 
 [node name="Explosion" type="AudioStreamPlayer" parent="." unique_id=1669628142]
 stream = ExtResource("4_e3tmc")
+
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=1984988425]
+position = Vector2(-1, 20)
+emitting = false
+amount = 10
+texture = SubResource("GradientTexture2D_xtvwr")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+particle_flag_align_y = true
+direction = Vector2(0, 0)
+spread = 180.0
+initial_velocity_min = 900.0
+initial_velocity_max = 900.0
+angular_velocity_min = -500.0
+angular_velocity_max = 500.0
+color = Color(1, 1, 1, 0.19607843)
+color_ramp = SubResource("Gradient_lqqpt")
+
+[node name="Smoke" type="CPUParticles2D" parent="." unique_id=1504311628]
+position = Vector2(-1, 20)
+emitting = false
+amount = 30
+texture = SubResource("GradientTexture2D_uxp80")
+lifetime = 4.5
+one_shot = true
+explosiveness = 0.98
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 96.0
+particle_flag_align_y = true
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, -150)
+initial_velocity_max = 6.0
+angular_velocity_min = -500.0
+angular_velocity_max = 500.0
+color = Color(1, 1, 1, 0.19607843)
+color_ramp = SubResource("Gradient_lqqpt")
+
+[node name="FuseSmoke" type="CPUParticles2D" parent="." unique_id=1611593905]
+position = Vector2(-6, -74)
+emitting = false
+amount = 10
+texture = SubResource("GradientTexture2D_e3tmc")
+explosiveness = 0.08
+direction = Vector2(1, -0.5)
+spread = 25.0
+gravity = Vector2(0, -300)
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+color = Color(1, 1, 1, 0.19607843)
+color_ramp = SubResource("Gradient_xtvwr")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

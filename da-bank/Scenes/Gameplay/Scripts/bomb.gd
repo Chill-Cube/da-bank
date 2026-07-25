@@ -6,6 +6,7 @@ var ticking := false
 	
 func _plant_bomb() -> void:
 	timer.start()
+	$FuseSmoke.emitting = true
 	velocity = Vector2.ZERO
 	ticking = true
 	$Fizz.play()
@@ -30,5 +31,8 @@ func _process(_delta: float) -> void:
 func _on_timer_timeout() -> void:
 	SignalBus._bomb_exploded.emit()
 	$Explosion.play()
+	$FuseSmoke.emitting = false
+	$Particles.emitting = true
+	$Smoke.emitting = true
 	$Visual.visible = false
 	GameState.change_state(GameState.State.STEALING)
