@@ -13,8 +13,8 @@ func _ready():
 	super()
 
 func _physics_process(delta: float) -> void:
-	if get_parent().get_parent().get_node_or_null("Player"):
-		var player: Player = get_parent().get_parent().get_node("Player")
+	if get_parent().get_parent().get_parent().get_node_or_null("Player"):
+		var player: Player = get_parent().get_parent().get_parent().get_node("Player")
 		var distance_x := player.global_position.x - global_position.x
 		if abs(distance_x) != distance_x: vel.x = -SPEED
 		else: vel.x = SPEED
@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 		time = 0.0
 	if time == 0.0:
 		for i in players:
-			i.MONEY -= 1.0
+			i.HEALTH -= 1.0
 	time += delta
 
 

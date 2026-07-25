@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://q3gsivj82hu5"]
+
+[ext_resource type="Script" uid="uid://ddm7spwhnfkqw" path="res://Scenes/Gameplay/Scripts/spawner.gd" id="1_0hmav"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vd2p6"]
+size = Vector2(1193, 1023)
+
+[node name="Spawner" type="Area2D" unique_id=1841466848]
+top_level = true
+monitoring = false
+monitorable = false
+script = ExtResource("1_0hmav")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=306844918]
+shape = SubResource("RectangleShape2D_vd2p6")
+
+[node name="Enemies" type="Node" parent="." unique_id=925822761]

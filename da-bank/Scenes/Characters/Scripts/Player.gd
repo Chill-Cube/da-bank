@@ -1,7 +1,7 @@
 extends Character
 class_name Player
 
-@export var MONEY := 100.0
+@export var MONEY := 0.0
 var hold_object : PickUpObject = null
 var min_distance := 250.0
 
