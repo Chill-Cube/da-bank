@@ -16,6 +16,7 @@ func _plant_bomb() -> void:
 
 	SignalBus._play_bars.emit()
 	await(get_tree().create_timer(2).timeout) 
+	SignalBus._bomb_planted.emit()
 	SignalBus._play_cutscene.emit(5)
 
 func pick_up(player: Player, object: Node2D) -> void:
