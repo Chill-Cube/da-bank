@@ -12,6 +12,8 @@ radius = 36.0
 height = 132.0
 
 [node name="Bomb" type="CharacterBody2D" unique_id=814096386]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_vlo8u")
 
 [node name="Timer" type="Timer" parent="." unique_id=1880891319]
