@@ -1,12 +1,21 @@
 [gd_scene format=3 uid="uid://dovt14prhx120"]
 
-[ext_resource type="PackedScene" uid="uid://btyod4aak0ct3" path="res://Scenes/Characters/Enemy.tscn" id="1_6uqi0"]
 [ext_resource type="PackedScene" uid="uid://db51f78xwt0ci" path="res://Scenes/Characters/Player.tscn" id="1_8uh7m"]
 [ext_resource type="Texture2D" uid="uid://c71b562ru51vu" path="res://icon.svg" id="2_6uqi0"]
-[ext_resource type="PackedScene" uid="uid://b3fycyaapy21n" path="res://Scenes/Gameplay/Bomb.tscn" id="3_6uqi0"]
+[ext_resource type="PackedScene" uid="uid://12bmw46s6lsm" path="res://Objects/ObjectTemplate.tscn" id="4_qnhm0"]
+[ext_resource type="PackedScene" uid="uid://btyod4aak0ct3" path="res://Scenes/Characters/Enemy.tscn" id="5_g6muf"]
+[ext_resource type="Texture2D" uid="uid://cjx38e8unccgk" path="res://Assets/Untisdftled_Artwork.png" id="5_ywpx5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyta"]
 size = Vector2(496, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6muf"]
+atlas = ExtResource("5_ywpx5")
+region = Rect2(217, 105.5, 84, 195)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ga7i2"]
+radius = 36.0
+height = 122.0
 
 [node name="Node2D" type="Node2D" unique_id=1374149594]
 
@@ -16,6 +25,8 @@ position = Vector2(27, 36)
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=343373614]
 position = Vector2(0, 160.535)
 scale = Vector2(6.6449995, 3.805)
+collision_layer = 5
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1578829645]
 shape = SubResource("RectangleShape2D_ppyta")
@@ -24,24 +35,20 @@ shape = SubResource("RectangleShape2D_ppyta")
 scale = Vector2(3.875, 0.15625)
 texture = ExtResource("2_6uqi0")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=629062817]
-position = Vector2(-906.99994, -224)
-scale = Vector2(0.13849488, 35.32685)
+[node name="CharacterBody2D" parent="." unique_id=140440757 instance=ExtResource("4_qnhm0")]
+position = Vector2(-416, 40)
+scale = Vector2(1.3663404, 1.3663404)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=2059742241]
-shape = SubResource("RectangleShape2D_ppyta")
+[node name="Object" parent="." unique_id=346593500 instance=ExtResource("4_qnhm0")]
+position = Vector2(563, 22)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2" unique_id=1452662133]
-scale = Vector2(3.875, 0.15625)
-texture = ExtResource("2_6uqi0")
+[node name="Visual" parent="Object" index="0" unique_id=1938035943]
+texture = SubResource("AtlasTexture_g6muf")
 
-[node name="Bomb" parent="." unique_id=563254750 instance=ExtResource("3_6uqi0")]
-position = Vector2(-784, 34)
+[node name="CollisionShape2D" parent="Object" index="1" unique_id=17973656]
+shape = SubResource("CapsuleShape2D_ga7i2")
 
-[node name="Enemies" type="Node" parent="." unique_id=462978352]
+[node name="Enemy" parent="." unique_id=664525115 instance=ExtResource("5_g6muf")]
+position = Vector2(-835, 25)
 
-[node name="Enemy" parent="Enemies" unique_id=664525115 instance=ExtResource("1_6uqi0")]
-position = Vector2(-511, 11)
-
-[node name="Enemy2" parent="Enemies" unique_id=2043618634 instance=ExtResource("1_6uqi0")]
-position = Vector2(492, -23)
+[editable path="Object"]

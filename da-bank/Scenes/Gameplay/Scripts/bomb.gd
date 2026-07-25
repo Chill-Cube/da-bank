@@ -8,5 +8,5 @@ func _ready() -> void:
 	timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	SignalBus._bomb_time_updated.emit(timer.time_left)
