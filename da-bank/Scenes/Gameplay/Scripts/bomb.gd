@@ -2,16 +2,17 @@ extends PickUpObject
 class_name Bomb
 
 @onready var timer : Timer = $Timer
-
-func _ready() -> void:
-	add_to_group("pickups")
+var ticking := false
 	
 func _plant_bomb() -> void:
 	timer.start()
 	velocity = Vector2.ZERO
+	ticking = true
+	$Fizz.play()
+	can_fall = false
 
 func pick_up(player: Player, object: Node2D) -> void:
-	if not timer.is_stopped():
+	if ticking:
 		return
 	else:
 		super.pick_up(player, object)
@@ -19,3 +20,8 @@ func pick_up(player: Player, object: Node2D) -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	SignalBus._bomb_time_updated.emit(timer.time_left)
+	
+func _on_timer_timeout() -> void:
+	SignalBus._bomb_exploded.emit()
+	$Explosion.play()
+	$Visual.visible = false

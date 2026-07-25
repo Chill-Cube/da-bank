@@ -9,6 +9,7 @@ class_name PickUpObject
 
 var trajectory_steps := 40
 var trajectory_step_time := 1.0 / 60.0
+var can_fall := true
 
 @onready var trajectory_line: Line2D = $TrajectoryLine
 
@@ -72,7 +73,7 @@ func _physics_process(delta: float) -> void:
 	if not thrown:
 		return
 
-	if not is_on_floor():
+	if not is_on_floor() and can_fall:
 		velocity += get_gravity() * delta
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, ground_friction * delta)
