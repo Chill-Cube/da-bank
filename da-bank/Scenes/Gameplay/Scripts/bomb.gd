@@ -1,11 +1,17 @@
-extends Node2D
+extends PickUpObject
 class_name Bomb
 
 @onready var timer : Timer = $Timer
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+	
+func put_down(player: Player, object: Node2D) -> void:
+	super.put_down(player, object)
 	timer.start()
+	
+func pick_up(player: Player, object: Node2D) -> void:
+	if not timer.is_stopped():
+		return
+	else:
+		super.pick_up(player, object)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

@@ -3,19 +3,27 @@
 [ext_resource type="Script" uid="uid://cwpnhcdc3eb40" path="res://Scenes/Gameplay/Scripts/bomb.gd" id="1_vlo8u"]
 [ext_resource type="Texture2D" uid="uid://cjx38e8unccgk" path="res://Assets/Untisdftled_Artwork.png" id="2_75bcl"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h1mo0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpy5g"]
 atlas = ExtResource("2_75bcl")
-region = Rect2(228.6755, 115.19209, 65.54236, 171.5674)
+region = Rect2(221, 115.5, 82, 170)
 
-[node name="Bomb" type="Node2D" unique_id=563254750]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lwtvr"]
+radius = 36.0
+height = 132.0
+
+[node name="Bomb" type="CharacterBody2D" unique_id=814096386]
 script = ExtResource("1_vlo8u")
 
 [node name="Timer" type="Timer" parent="." unique_id=1880891319]
 wait_time = 30.0
 one_shot = true
 
-[node name="UntisdftledArtwork" type="Sprite2D" parent="." unique_id=1129922201]
+[node name="Visual" type="Sprite2D" parent="." unique_id=911913313]
 texture_filter = 1
-position = Vector2(1.000001, 1.0000019)
-scale = Vector2(1.1416084, 1.1416084)
-texture = SubResource("AtlasTexture_h1mo0")
+texture = SubResource("AtlasTexture_wpy5g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1710040244]
+position = Vector2(-1, 20)
+shape = SubResource("CapsuleShape2D_lwtvr")
+
+[node name="TrajectoryLine" type="Line2D" parent="." unique_id=1211634583]
