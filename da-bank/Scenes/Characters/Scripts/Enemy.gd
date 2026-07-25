@@ -13,6 +13,8 @@ func _ready():
 	super()
 
 func _physics_process(delta: float) -> void:
+	if GameState.current_state == GameState.State.LEAVING: return
+	
 	if get_parent().get_parent().get_parent().get_node_or_null("Player"):
 		var player: Player = get_parent().get_parent().get_parent().get_node("Player")
 		var distance_x := player.global_position.x - global_position.x
