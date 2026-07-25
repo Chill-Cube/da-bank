@@ -13,6 +13,11 @@ func _ready():
 	super()
 
 func _physics_process(delta: float) -> void:
+	if sprite.rotation == deg_to_rad(90): return
+	if HEALTH <= 0.0:
+		sprite.rotation = lerp(sprite.rotation, deg_to_rad(90), 0.1)
+		sprite.offset = lerp(sprite.offset, Vector2(57.925, 0), 0.1)
+	
 	if is_on_floor() and !jumping and !animation_playing("jump"):
 		fallen = false
 		double_jump = false
@@ -44,8 +49,13 @@ func find_closest_pickup(from_position: Vector2) -> PickUpObject:
 func get_money(money : float, _object : PickUpObject) -> void:
 	MONEY += money
 	$ching.play()
+	
+func die():
+	$CameraPivot/Camera2D.zoom = lerp($CameraPivot/Camera2D.zoom, Vector2(1.0, 1.0), 0.5)
+	Engine.time_scale = 0.05
 
 func _input(event: InputEvent) -> void:
+	if HEALTH <= 0: return
 	if event.is_action_pressed("pick_up"):
 		var nearest := find_closest_pickup(global_position)
 		if nearest is Bomb and GameState.current_state != GameState.State.PLANTING: return

@@ -89,6 +89,8 @@ func _physics_process(delta: float) -> void:
 			remove_collision_exception_with(last_holder)
 			last_holder = null
 
+func die() -> void:
+	pass
 
 func _update_trajectory_preview(player: Player) -> void:
 	var sim_pos := global_position
@@ -123,4 +125,5 @@ func _update_trajectory_preview(player: Player) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if thrown:
 		if body is Enemy:
-			body.HEALTH -= (weight/35.0) * 4
+			var knockback := velocity.normalized() * 1000
+			body.take_damage((weight / 35.0) * 4, knockback)

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxh1uupmg5wey" path="res://Scenes/Characters/Scripts/Character.gd" id="1_8jciq"]
 [ext_resource type="SpriteFrames" uid="uid://8s02amvmx7qs" path="res://Assets/Animations.tres" id="2_8jciq"]
+[ext_resource type="AudioStream" uid="uid://sbs00frjkbkm" path="res://SFX/dmg.wav" id="2_b3vq0"]
 [ext_resource type="PackedScene" uid="uid://cirdkc8w460e2" path="res://Scenes/Characters/Particles.tscn" id="3_s2imm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tok1r"]
@@ -10,6 +11,10 @@ height = 174.0
 
 [node name="Character" type="CharacterBody2D" unique_id=664525115]
 script = ExtResource("1_8jciq")
+
+[node name="Dmg" type="AudioStreamPlayer" parent="." unique_id=2131352999]
+stream = ExtResource("2_b3vq0")
+volume_db = -17.333
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1735339634]
 scale = Vector2(0.9062499, 1.3593751)

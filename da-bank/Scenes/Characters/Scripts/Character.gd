@@ -13,6 +13,8 @@ class_name Character
 @onready var speed_lines := $Particles/SpeedLines
 @onready var sprite := $Sprite2D
 
+@export var KNOCKBACK_RESISTANCE := 1.0
+
 var jumping := false
 var vel := Vector2.ZERO
 
@@ -22,6 +24,31 @@ func _ready():
 
 func animation_playing(animation: String) -> bool:
 	return sprite.animation == animation_key + animation and sprite.is_playing()
+	
+var damage_tween: Tween
+
+func take_damage(amount: float, knockback: Vector2 = Vector2.ZERO) -> void:
+	HEALTH -= amount
+
+	velocity += knockback * KNOCKBACK_RESISTANCE
+
+	if damage_tween:
+		damage_tween.kill()
+
+	sprite.modulate = Color(1.0, 0.2, 0.2)
+	
+	$Dmg.pitch_scale = randf_range(0.9, 1.1)
+	$Dmg.play()
+
+	damage_tween = create_tween()
+	damage_tween.tween_property(sprite, "modulate", Color.WHITE, 0.15)
+
+	if HEALTH <= 0:
+		die()
+
+
+func die():
+	pass
 
 func _physics_process(delta: float) -> void:
 	velocity.x = lerp(velocity.x,vel.x,ACCELERATION)

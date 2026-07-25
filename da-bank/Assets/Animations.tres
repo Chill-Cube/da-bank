@@ -7,6 +7,14 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_8rfqv")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_kmra8")
 }],
 "loop": true,
