@@ -12,6 +12,9 @@ func _process(_delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	print(body)
+	
+	if body is Bomb: return
+	
 	if body is PickUpObject:
 		SignalBus._object_in_truck.emit(body.value, body)
 		
