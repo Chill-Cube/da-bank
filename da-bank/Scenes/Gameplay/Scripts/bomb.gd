@@ -2,12 +2,14 @@ extends PickUpObject
 class_name Bomb
 
 @onready var timer : Timer = $Timer
+
+func _ready() -> void:
+	add_to_group("pickups")
 	
-func put_down(player: Player, object: Node2D) -> void:
-	if object != self: return
-	super.put_down(player, object)
+func _plant_bomb() -> void:
 	timer.start()
-	
+	velocity = Vector2.ZERO
+
 func pick_up(player: Player, object: Node2D) -> void:
 	if not timer.is_stopped():
 		return
