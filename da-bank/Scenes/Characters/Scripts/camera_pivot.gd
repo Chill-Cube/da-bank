@@ -9,14 +9,25 @@ extends Node2D
 var rng = RandomNumberGenerator.new()
 var shake_strength := 0.0
 
+var cutscene := false
+var cutscene_pos := Vector2(-1410.0, 0)
+
 func _ready() -> void:
 	SignalBus._bomb_exploded.connect(_camera_shake)
+	SignalBus._play_cutscene.connect(play_cutscene)
+
+
+func play_cutscene(duration : float):
+	cutscene = true
+	await(get_tree().create_timer(duration).timeout) 
+	cutscene = false
+	SignalBus._end_cutscene.emit()
 
 func _physics_process(_delta: float) -> void:
-	var target_pos := player.global_position - player.velocity * 0.05
+	var target_pos = player.global_position - player.velocity * 0.05
 	
 	global_position = global_position.lerp(
-		target_pos,
+		target_pos if not cutscene else Vector2(-1340.0, -61.0),
 		follow_speed
 	) 
 

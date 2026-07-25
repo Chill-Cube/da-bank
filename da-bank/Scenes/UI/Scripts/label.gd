@@ -12,6 +12,10 @@ func format_time(total_seconds: float) -> String:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus._bomb_time_updated.connect(update_time)
+	GameState.state_changed.connect(show_timer)
+
+func show_timer(state : GameState.State):
+	visible =  true if state == GameState.State.DEFENDING else false
 
 func update_time(time : float) -> void:
 	#print("hey")

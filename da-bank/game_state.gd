@@ -1,13 +1,16 @@
 extends Node
 
 enum State {
-    PLANTING,
-    DEFENDING,
-    STEALING,
-    LEAVING,
+	ENTERING,
+	PLANTING,
+	DEFENDING,
+	STEALING,
+	LEAVING,
 }
 
-var current_state : State
+var current_state := State.ENTERING
+signal state_changed(state : State)
 
 func change_state(state : State) -> void:
-    current_state = state
+	current_state = state
+	state_changed.emit(state)
