@@ -5,6 +5,7 @@
 [ext_resource type="Shader" uid="uid://21vr0civvhgk" path="res://Scenes/Objects/ObjectTemplate.gdshader" id="2_xtvwr"]
 [ext_resource type="AudioStream" uid="uid://p7m8d7lv72dp" path="res://SFX/184519__soundslikewillem__fuse(1).wav" id="3_lwtvr"]
 [ext_resource type="AudioStream" uid="uid://cqv6w4xpogvoa" path="res://SFX/446624__idkmrgarcia__explosion2.wav" id="4_e3tmc"]
+[ext_resource type="AudioStream" uid="uid://dcr2ewhd6ym4" path="res://SFX/8footdino_on_scratch-alarm-301729.mp3" id="6_lqqpt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lqqpt"]
 shader = ExtResource("2_xtvwr")
@@ -70,7 +71,7 @@ shape = SubResource("CapsuleShape2D_lwtvr")
 
 [node name="Fizz" type="AudioStreamPlayer" parent="." unique_id=1645765622]
 stream = ExtResource("3_lwtvr")
-volume_db = -14.596
+volume_db = -4.561
 
 [node name="Explosion" type="AudioStreamPlayer" parent="." unique_id=1669628142]
 stream = ExtResource("4_e3tmc")
@@ -127,5 +128,9 @@ angular_velocity_min = -200.0
 angular_velocity_max = 200.0
 color = Color(1, 1, 1, 0.19607843)
 color_ramp = SubResource("Gradient_xtvwr")
+
+[node name="Alarm" type="AudioStreamPlayer" parent="." unique_id=1571646456]
+stream = ExtResource("6_lqqpt")
+volume_db = -19.158
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

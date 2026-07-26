@@ -12,7 +12,7 @@ func _plant_bomb() -> void:
 	$Fizz.play()
 	can_fall = false
 	GameState.change_state(GameState.State.DEFENDING)
-
+	$Alarm.play()
 
 	SignalBus._play_bars.emit()
 	await(get_tree().create_timer(2).timeout) 
