@@ -140,6 +140,7 @@ region = Rect2(282, 394.5, 80, 88)
 [node name="Node2D" type="Node2D" unique_id=1374149594]
 
 [node name="Player" parent="." unique_id=1380629138 instance=ExtResource("1_8uh7m")]
+z_index = 1
 position = Vector2(-1330, -110)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=343373614]
