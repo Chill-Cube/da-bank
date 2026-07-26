@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dg083elek7vkx"]
+
+[ext_resource type="Script" uid="uid://bobvyr3h7yx1" path="res://Scenes/Gameplay/music.gd" id="1_y878j"]
+[ext_resource type="AudioStream" uid="uid://dfwxdy7mrcgt4" path="res://cops.mp3" id="2_us806"]
+
+[node name="Node2D" type="Node2D" unique_id=138435714]
+script = ExtResource("1_y878j")
+
+[node name="Cops" type="AudioStreamPlayer" parent="." unique_id=861440722]
+stream = ExtResource("2_us806")
+volume_db = -15.509

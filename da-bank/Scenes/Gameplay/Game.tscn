@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bvl2cet4ih4k7" path="res://Assets/Items.png" id="10_m68vp"]
 [ext_resource type="Texture2D" uid="uid://gjo423hgf51w" path="res://Assets/1.png" id="11_ue522"]
 [ext_resource type="Texture2D" uid="uid://w01jncdpogo4" path="res://Assets/Tileset_2D Platformer.png" id="12_3g1pc"]
+[ext_resource type="PackedScene" uid="uid://dg083elek7vkx" path="res://Scenes/Gameplay/music.tscn" id="13_tsetf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyta"]
 size = Vector2(1341.3093, 20)
@@ -460,6 +461,8 @@ metadata/_edit_lock_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1239663943]
 tile_set = SubResource("TileSet_jabbq")
+
+[node name="Node2D" parent="." unique_id=138435714 instance=ExtResource("13_tsetf")]
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 
