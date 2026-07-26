@@ -1,17 +1,31 @@
 extends Label
 
 
+var STATE_NAMES := {
+	GameState.State.PLANTING: "Click to pick up and throw nearby objects",
+	GameState.State.STEALING: "Throw objects in the truck to sell them",
+}
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	GameState.state_changed.connect(change_text)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	# if game state is PLANTING, show the hint then put it away after 5 seconds
-	if GameState.current_state == GameState.State.PLANTING:
-		# lerp fade in 
-		modulate.a = lerp(modulate.a, 1.0, 0.1)
+func change_text(state : GameState.State):
+	if STATE_NAMES[state]:
+		text = STATE_NAMES[state]
+		var tween := create_tween()
+		tween.set_ignore_time_scale(true)
+
+		tween.tween_property(self, "modulate:a", 1.0, 0.5)
+
+		await tween.finished
 		await get_tree().create_timer(5.0, true, false, true).timeout
-		# lerp fade out
-		modulate.a = lerp(modulate.a, 0.0, 0.1)
+
+		tween = create_tween()
+		tween.set_ignore_time_scale(true)
+
+		tween.tween_property(self, "modulate:a", 0.0, 0.5)
+
+		await tween.finished

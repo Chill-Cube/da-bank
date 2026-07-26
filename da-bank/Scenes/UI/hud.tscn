@@ -173,6 +173,9 @@ _data = {
 &"ya dead": SubResource("Animation_qdh5o")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cna6x"]
+bg_color = Color(0.06879826, 0.06879829, 0.06879823, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7wqu8"]
 bg_color = Color(0.8282584, 0.15891814, 0.31260112, 1)
 
@@ -233,10 +236,9 @@ offset_bottom = 171.0
 theme_override_fonts/font = ExtResource("3_7wqu8")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_qdh5o")
-text = "Click to pick up 
-and throw nearby 
-objects"
+text = "Click to pick up and throw nearby objects"
 vertical_alignment = 1
+autowrap_mode = 3
 script = ExtResource("6_qdh5o")
 
 [node name="Panel" type="Panel" parent="." unique_id=316268399]
@@ -306,6 +308,7 @@ offset_right = 862.3333
 offset_bottom = 641.0
 theme_override_fonts/font = ExtResource("3_7wqu8")
 theme_override_font_sizes/font_size = 35
+theme_override_styles/background = SubResource("StyleBoxFlat_cna6x")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7wqu8")
 script = ExtResource("6_ux5h0")
 
