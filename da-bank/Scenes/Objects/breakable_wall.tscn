@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://crclxsqalcwr"]
+[gd_scene format=3 uid="uid://cb62t140jtu0p"]
 
 [ext_resource type="Script" uid="uid://bjsh3e8qb70hf" path="res://Scenes/Objects/Scripts/breakable_wall.gd" id="1_dvj1e"]
 [ext_resource type="Texture2D" uid="uid://c71b562ru51vu" path="res://icon.svg" id="2_pxq4u"]
 [ext_resource type="PackedScene" uid="uid://dw4mhn7xl7x7d" path="res://Assets/explosion.tscn" id="5_c3bwd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rktmr"]
-size = Vector2(128, 128)
+size = Vector2(128, 610)
 
 [sub_resource type="Curve" id="Curve_c3bwd"]
 _data = [Vector2(0.011869438, 1), 0.0, 0.0, 0, 0, Vector2(0.29721358, 0.17945552), 0.0, 0.0, 0, 0, Vector2(0.9999999, 0), 0.0, 0.0, 0, 0]

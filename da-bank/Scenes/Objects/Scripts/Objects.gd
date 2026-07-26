@@ -27,6 +27,11 @@ func _ready() -> void:
 	SignalBus._put_down_object.connect(put_down)
 	SignalBus._object_in_truck.connect(object_sold)
 	visual.material = visual.material.duplicate()
+	
+	for pickup in get_tree().get_nodes_in_group("pickups"):
+		if pickup != self:
+			add_collision_exception_with(pickup)
+			pickup.add_collision_exception_with(self)
 	add_to_group("pickups")
 
 var outline_tween: Tween

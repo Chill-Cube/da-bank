@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://74d8tqcjc6s0" path="res://Scenes/UI/Scripts/hint.gd" id="6_qdh5o"]
 [ext_resource type="Script" uid="uid://dv3tkuk6dwobp" path="res://Scenes/UI/Scripts/health_2.gd" id="6_ux5h0"]
 [ext_resource type="Texture2D" uid="uid://b2fwecfpaj76w" path="res://SFX/955-9550236_red-vignette-background-peach.png" id="7_mqf2c"]
+[ext_resource type="AudioStream" uid="uid://dus2s6kgb7vxb" path="res://SFX/universfield-new-notification-062-494544.mp3" id="11_cna6x"]
 
 [sub_resource type="Animation" id="Animation_cna6x"]
 length = 0.001
@@ -206,6 +207,8 @@ offset_top = 1.0
 offset_right = 473.0
 offset_bottom = 69.0
 grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_7wqu8")
 theme_override_font_sizes/font_size = 40
 text = "Go into the bank"
@@ -228,7 +231,7 @@ horizontal_alignment = 1
 script = ExtResource("2_ny26j")
 
 [node name="Hint" type="Label" parent="." unique_id=214791207]
-self_modulate = Color(1, 1, 1, 0)
+visible = false
 offset_left = 430.0
 offset_top = 66.0
 offset_right = 766.0
@@ -240,6 +243,10 @@ text = "Click to pick up and throw nearby objects"
 vertical_alignment = 1
 autowrap_mode = 3
 script = ExtResource("6_qdh5o")
+
+[node name="notif" type="AudioStreamPlayer" parent="Hint" unique_id=1597057518]
+stream = ExtResource("11_cna6x")
+volume_db = -15.509
 
 [node name="Panel" type="Panel" parent="." unique_id=316268399]
 z_index = 4
@@ -314,6 +321,6 @@ script = ExtResource("6_ux5h0")
 
 [node name="Vignette" type="Sprite2D" parent="." unique_id=1939849853]
 visible = false
-position = Vector2(579.55554, 327)
-scale = Vector2(0.5994214, 0.59999996)
+position = Vector2(574.5, 324.5)
+scale = Vector2(0.6046875, 0.6046295)
 texture = ExtResource("7_mqf2c")

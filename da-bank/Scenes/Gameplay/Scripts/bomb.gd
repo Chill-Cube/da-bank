@@ -9,19 +9,20 @@ func _plant_bomb() -> void:
 	$FuseSmoke.emitting = true
 	velocity = Vector2.ZERO
 	
-	
 	SignalBus._play_bars.emit()
 	$Fizz.play()
 	
 	can_fall = false
 	await(get_tree().create_timer(2).timeout) 
-	GameState.change_state(GameState.State.DEFENDING)
+	SignalBus._bomb_planted0.emit()
 	$Alarm.play()
 	
 	await(get_tree().create_timer(0.5).timeout) 
 	ticking = true
 	SignalBus._bomb_planted.emit()
 	SignalBus._play_cutscene.emit(5)
+	await(get_tree().create_timer(5).timeout) 
+	GameState.change_state(GameState.State.DEFENDING)
 
 func pick_up(player: Player, object: Node2D) -> void:
 	if GameState.current_state != GameState.State.PLANTING:

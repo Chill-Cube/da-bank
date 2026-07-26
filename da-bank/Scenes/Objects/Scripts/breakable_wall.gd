@@ -6,23 +6,16 @@ var broken := false
 @onready var AreaCollision := $CollisionShape2D
 @onready var StaticBodyCollision := $StaticBody2D/CollisionShape2D
 
-func _ready() -> void:
-	get_node("Explosion").transform = StaticBodyCollision.transform
-	AreaCollision.shape = StaticBodyCollision.shape
-	AreaCollision.transform = StaticBodyCollision.transform
-
 func _on_body_entered(body: Node2D) -> void:
 	if !broken:
-		if body is Player:
-			if body.linear_velocity.abs().length() >= break_speed:
+		if body is PickUpObject:
+			if body.velocity.abs().length() >= break_speed:
 				broken = true
 				
-				
+				$Sprite2D.visible = false
 				get_node("StaticBody2D").queue_free()
 				get_node("Explosion").emitting = true
 				$break.play()
-				
-				body._on_break.emit()
 			else:
 				StaticBodyCollision.set_deferred("disabled", false)
 

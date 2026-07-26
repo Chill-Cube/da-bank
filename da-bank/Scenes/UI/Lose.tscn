@@ -11,13 +11,14 @@ colors = PackedColorArray(0.06469653, 0.06469653, 0.06469653, 1, 0.5417978, 0, 0
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_pkwek"]
 gradient = SubResource("Gradient_rupua")
 
-[node name="Win" type="Node2D" unique_id=1437464111]
+[node name="Win2" type="Node2D" unique_id=1437464111]
 
 [node name="Label" type="Label" parent="." unique_id=2024347686]
 offset_left = 306.0
 offset_top = 104.0
 offset_right = 939.0
 offset_bottom = 192.0
+theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("2_pkwek")
 theme_override_font_sizes/font_size = 84
 text = "GOT CAUGHT..."

@@ -5,6 +5,7 @@ signal _bomb_defused()
 signal _bomb_exploded()
 signal _plant_bomb()
 signal _bomb_planted()
+signal _bomb_planted0()
 
 signal _pick_up_object(player : Player, object : PickUpObject)
 signal _put_down_object(player : Player, object : PickUpObject)

@@ -134,12 +134,15 @@ func _input(event: InputEvent) -> void:
 				$equip.play()
 				SignalBus._pick_up_object.emit(self, nearest)
 				hold_object = nearest
+				
+				hold_object.z_index = 2
 			elif hold_object != null:
 				if randi_range(1, 100) == 100:
 					$secret_throw.play()
 				else:
 					$throw.play()
 				SignalBus._put_down_object.emit(self, hold_object)
+				hold_object.z_index = 0
 				hold_object = null
 
 func _process(delta: float) -> void:

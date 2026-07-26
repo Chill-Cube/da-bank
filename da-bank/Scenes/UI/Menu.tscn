@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://b0f1xx84nfki1"]
 
+[ext_resource type="FontFile" uid="uid://boms6cd2ves1" path="res://VCR_OSD_MONO_1.001 2.ttf" id="1_353f8"]
+[ext_resource type="Texture2D" uid="uid://dtx0grm2i0dfm" path="res://SFX/Untitled_dfgfdgArdtwork.png" id="2_6jtbh"]
+[ext_resource type="AudioStream" uid="uid://cgvitkoqj2hbe" path="res://chillhiphopfunky.mp3" id="3_6jtbh"]
+
 [sub_resource type="GDScript" id="GDScript_jjiyp"]
 script/source = "extends Node2D
 
@@ -9,14 +13,44 @@ func play() -> void:
 	get_tree().change_scene_to_file(\"res://Scenes/Gameplay/Game.tscn\")
 "
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cock"]
+bg_color = Color(0, 0.5345847, 0.30886322, 0.78431374)
+
 [node name="Menu" type="Node2D" unique_id=263836862]
 script = SubResource("GDScript_jjiyp")
 
 [node name="Button" type="Button" parent="." unique_id=993342595]
-offset_left = 464.0
-offset_top = 305.0
-offset_right = 636.0
+offset_left = 352.0
+offset_top = 403.0
+offset_right = 776.94116
+offset_bottom = 487.0
+theme_override_fonts/font = ExtResource("1_353f8")
+theme_override_font_sizes/font_size = 71
+theme_override_styles/normal = SubResource("StyleBoxFlat_5cock")
+text = "PLAY"
+
+[node name="UntitledDfgfdgArdtwork" type="Sprite2D" parent="." unique_id=1501310847]
+self_modulate = Color(0.5489626, 0.5489626, 0.54896253, 1)
+z_index = -2
+texture_filter = 1
+position = Vector2(583.1111, 331.49997)
+scale = Vector2(2.0216048, 2.021605)
+texture = ExtResource("2_6jtbh")
+
+[node name="Label" type="Label" parent="." unique_id=2143008439]
+offset_left = 250.0
+offset_top = 251.0
+offset_right = 890.0
 offset_bottom = 339.0
-text = "Play"
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("1_353f8")
+theme_override_font_sizes/font_size = 84
+text = "ROB DA BANK!"
+horizontal_alignment = 1
+
+[node name="Chillhiphopfunky" type="AudioStreamPlayer" parent="." unique_id=116069645]
+stream = ExtResource("3_6jtbh")
+volume_db = -18.246
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="play"]
