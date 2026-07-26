@@ -1,7 +1,6 @@
-[gd_scene format=3 uid="uid://dovt14prhx120"]
+[gd_scene format=4 uid="uid://dovt14prhx120"]
 
 [ext_resource type="PackedScene" uid="uid://db51f78xwt0ci" path="res://Scenes/Characters/Player.tscn" id="1_73bp4"]
-[ext_resource type="Texture2D" uid="uid://c71b562ru51vu" path="res://icon.svg" id="2_tsetf"]
 [ext_resource type="PackedScene" uid="uid://12bmw46s6lsm" path="res://Scenes/Objects/ObjectTemplate.tscn" id="3_b0wsk"]
 [ext_resource type="PackedScene" uid="uid://b3fycyaapy21n" path="res://Scenes/Gameplay/Bomb.tscn" id="4_3s2c7"]
 [ext_resource type="PackedScene" uid="uid://cqjudepyt4e7f" path="res://Scenes/Gameplay/pick_up_truck.tscn" id="5_pkx8u"]
@@ -15,133 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dg083elek7vkx" path="res://Scenes/Gameplay/music.tscn" id="13_tsetf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyta"]
-size = Vector2(1341.3093, 20)
-
-[sub_resource type="Animation" id="Animation_6c0xd"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Truck:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1411, -61)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Player:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1330, -110)]
-}
-
-[sub_resource type="Animation" id="Animation_6c8aw"]
-resource_name = "enter"
-length = 3.0333333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Truck:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3.0333333),
-"transitions": PackedFloat32Array(0.24148421, 0.24148421),
-"update": 0,
-"values": [Vector2(-3464, -203), Vector2(-1106, -203)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Player:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 3.0333333),
-"transitions": PackedFloat32Array(0.24148421, 0.24148421),
-"update": 0,
-"values": [Vector2(-3482, -203), Vector2(-1124, -203)]
-}
-
-[sub_resource type="Animation" id="Animation_nrrav"]
-resource_name = "leave"
-length = 3.0333333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Truck:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Player:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-
-[sub_resource type="Animation" id="Animation_qoumo"]
-resource_name = "leave2"
-length = 3.0333333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Truck:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3.0333333),
-"transitions": PackedFloat32Array(6.06286, 6.06286),
-"update": 0,
-"values": [Vector2(-1106, -203), Vector2(-3464, -203)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Player:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 3.0333333),
-"transitions": PackedFloat32Array(6.06286, 6.06286),
-"update": 0,
-"values": [Vector2(-1124, -203), Vector2(-3482, -203)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_nrrav"]
-_data = {
-&"RESET": SubResource("Animation_6c0xd"),
-&"enter": SubResource("Animation_6c8aw"),
-&"leave": SubResource("Animation_nrrav"),
-&"leave2": SubResource("Animation_qoumo")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6c8aw"]
-size = Vector2(122, 754.5)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qoumo"]
-atlas = ExtResource("10_m68vp")
-region = Rect2(282, 394.5, 80, 88)
+size = Vector2(1354.4021, 126.149796)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oqvfa"]
 texture = ExtResource("12_3g1pc")
@@ -321,7 +194,135 @@ texture = ExtResource("12_3g1pc")
 12:13/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_jabbq"]
+physics_layer_0/collision_layer = 7
+physics_layer_0/collision_mask = 7
 sources/1 = SubResource("TileSetAtlasSource_oqvfa")
+
+[sub_resource type="Animation" id="Animation_6c0xd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Truck:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1411, -61)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1330, -110)]
+}
+
+[sub_resource type="Animation" id="Animation_6c8aw"]
+resource_name = "enter"
+length = 3.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Truck:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.0333333),
+"transitions": PackedFloat32Array(0.24148421, 0.24148421),
+"update": 0,
+"values": [Vector2(-3464, -203), Vector2(-1106, -203)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.0333333),
+"transitions": PackedFloat32Array(0.24148421, 0.24148421),
+"update": 0,
+"values": [Vector2(-3482, -203), Vector2(-1124, -203)]
+}
+
+[sub_resource type="Animation" id="Animation_nrrav"]
+resource_name = "leave"
+length = 3.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Truck:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_qoumo"]
+resource_name = "leave2"
+length = 3.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Truck:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.0333333),
+"transitions": PackedFloat32Array(6.06286, 6.06286),
+"update": 0,
+"values": [Vector2(-1106, -203), Vector2(-3464, -203)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.0333333),
+"transitions": PackedFloat32Array(6.06286, 6.06286),
+"update": 0,
+"values": [Vector2(-1124, -203), Vector2(-3482, -203)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nrrav"]
+_data = {
+&"RESET": SubResource("Animation_6c0xd"),
+&"enter": SubResource("Animation_6c8aw"),
+&"leave": SubResource("Animation_nrrav"),
+&"leave2": SubResource("Animation_qoumo")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6c8aw"]
+size = Vector2(122, 754.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qoumo"]
+atlas = ExtResource("10_m68vp")
+region = Rect2(282, 394.5, 80, 88)
 
 [node name="Node2D" type="Node2D" unique_id=1374149594]
 
@@ -336,15 +337,17 @@ collision_layer = 7
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1578829645]
-position = Vector2(-84.80061, 0)
-scale = Vector2(0.9999999, 1)
+position = Vector2(-80.81261, 52.299603)
+scale = Vector2(0.9999998, 1)
 shape = SubResource("RectangleShape2D_ppyta")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=433514754]
-texture_filter = 1
-position = Vector2(-84.72533, 358.00458)
-scale = Vector2(10.461344, 5.7500715)
-texture = ExtResource("2_tsetf")
+[node name="TileMapLayer" type="TileMapLayer" parent="StaticBody2D" unique_id=1239663943]
+texture_filter = 3
+position = Vector2(0.45146722, -42.31274)
+scale = Vector2(1.1286681, 1.9710904)
+tile_map_data = PackedByteArray("AADW/wEAAQAJAAYAAADW/wIAAQAJAAcAAADW/wMAAQAJAAcAAADW/wQAAQAJAAkAAADX/wQAAQAKAAkAAADY/wQAAQAKAAkAAADZ/wQAAQAKAAkAAADa/wQAAQAKAAkAAADb/wQAAQAKAAkAAADc/wQAAQAKAAkAAADd/wQAAQAKAAkAAADe/wQAAQAKAAkAAADf/wQAAQAKAAkAAADg/wQAAQAKAAkAAADh/wQAAQAKAAkAAADi/wQAAQAKAAkAAADj/wQAAQAKAAkAAADk/wQAAQAKAAkAAADl/wQAAQAKAAkAAADm/wQAAQAKAAkAAADn/wQAAQAKAAkAAADo/wQAAQAKAAkAAADp/wQAAQAKAAkAAADq/wQAAQAKAAkAAADX/wMAAQAKAAgAAADY/wMAAQAKAAgAAADZ/wMAAQAKAAgAAADa/wMAAQAKAAgAAADb/wMAAQAKAAgAAADc/wMAAQAKAAgAAADd/wMAAQAKAAgAAADe/wMAAQAKAAgAAADf/wMAAQAKAAgAAADg/wMAAQAKAAgAAADh/wMAAQAKAAgAAADi/wMAAQAKAAgAAADj/wMAAQAKAAgAAADk/wMAAQAKAAgAAADl/wMAAQAKAAgAAADm/wMAAQAKAAgAAADn/wMAAQAKAAgAAADo/wMAAQAKAAgAAADp/wMAAQAKAAgAAADq/wMAAQAKAAgAAADq/wIAAQAKAAgAAADp/wIAAQAKAAgAAADo/wIAAQAKAAgAAADn/wIAAQAKAAgAAADm/wIAAQAKAAgAAADl/wIAAQAKAAgAAADk/wIAAQAKAAgAAADj/wIAAQAKAAgAAADi/wIAAQAKAAgAAADh/wIAAQAKAAgAAADg/wIAAQAKAAgAAADf/wIAAQAKAAgAAADe/wIAAQAKAAgAAADd/wIAAQAKAAgAAADc/wIAAQAKAAgAAADb/wIAAQAKAAgAAADa/wIAAQAKAAgAAADZ/wIAAQAKAAgAAADY/wIAAQAKAAgAAADX/wIAAQAKAAgAAADZ/wEAAQALAAYAAADY/wEAAQALAAYAAADX/wEAAQALAAYAAADa/wEAAQALAAYAAADb/wEAAQALAAYAAADc/wEAAQALAAYAAADd/wEAAQALAAYAAADe/wEAAQALAAYAAADf/wEAAQALAAYAAADg/wEAAQALAAYAAADh/wEAAQALAAYAAADi/wEAAQALAAYAAADj/wEAAQALAAYAAADk/wEAAQALAAYAAADl/wEAAQALAAYAAADm/wEAAQALAAYAAADr/wIAAQAKAAgAAADs/wIAAQAKAAgAAADs/wEAAQALAAYAAADt/wEAAQALAAYAAADr/wEAAQALAAYAAADq/wEAAQALAAYAAADp/wEAAQALAAYAAADo/wEAAQALAAYAAADn/wEAAQALAAYAAADu/wEAAQALAAYAAADv/wEAAQALAAYAAADw/wEAAQALAAYAAADx/wEAAQALAAYAAADy/wEAAQALAAYAAADz/wEAAQALAAYAAAD0/wEAAQALAAYAAAD1/wEAAQALAAYAAAD2/wEAAQALAAYAAAD3/wEAAQAOAAYAAAD4/wEAAQALAAoAAAD5/wEAAQALAAoAAAD4/wIAAQAKAAwAAAD3/wIAAQAQAAYAAAD2/wIAAQAKAAgAAAD1/wIAAQAKAAgAAAD0/wIAAQAKAAgAAADz/wIAAQAKAAgAAADy/wIAAQAKAAgAAADx/wIAAQAKAAgAAADw/wIAAQAKAAgAAADv/wIAAQAKAAgAAADu/wIAAQAKAAgAAADt/wIAAQAKAAgAAADr/wMAAQAKAAgAAADr/wQAAQAKAAkAAADs/wQAAQAKAAkAAADt/wQAAQAKAAkAAADu/wQAAQAKAAkAAADv/wMAAQAKAAgAAADw/wMAAQAKAAgAAADx/wMAAQAKAAgAAADy/wMAAQAKAAgAAADu/wMAAQAKAAgAAADt/wMAAQAKAAgAAADs/wMAAQAKAAgAAADv/wQAAQAKAAkAAADw/wQAAQAKAAkAAADx/wQAAQAKAAkAAADy/wQAAQAKAAkAAADz/wMAAQAKAAgAAADz/wQAAQAKAAkAAAD0/wMAAQAKAAgAAAD0/wQAAQAKAAkAAAD1/wMAAQAKAAgAAAD1/wQAAQAKAAkAAAD2/wMAAQAKAAgAAAD2/wQAAQAKAAkAAAD3/wMAAQAQAAYAAAD3/wQAAQAOAAcAAAD4/wMAAQAKAAwAAAD4/wQAAQAKAA0AAAD5/wIAAQAKAAwAAAD5/wMAAQAKAAwAAAD5/wQAAQAKAA0AAAD6/wEAAQALAAoAAAD6/wIAAQAKAAwAAAD6/wMAAQAKAAwAAAD6/wQAAQAKAA0AAAD7/wEAAQALAAoAAAD7/wIAAQAKAAwAAAD7/wMAAQAKAAwAAAD7/wQAAQAKAA0AAAD8/wEAAQALAAoAAAD8/wIAAQAKAAwAAAD8/wMAAQAKAAwAAAD8/wQAAQAKAA0AAAD9/wEAAQALAAoAAAD9/wIAAQAKAAwAAAD9/wMAAQAKAAwAAAD9/wQAAQAKAA0AAAD+/wEAAQALAAoAAAD+/wIAAQAKAAwAAAD+/wMAAQAKAAwAAAD+/wQAAQAKAA0AAAD//wEAAQALAAoAAAD//wIAAQAKAAwAAAD//wMAAQAKAAwAAAD//wQAAQAKAA0AAAAAAAEAAQALAAoAAAAAAAIAAQAKAAwAAAAAAAMAAQAKAAwAAAAAAAQAAQAKAA0AAAABAAEAAQALAAoAAAABAAIAAQAKAAwAAAABAAMAAQAKAAwAAAABAAQAAQAKAA0AAAACAAEAAQALAAoAAAACAAIAAQAKAAwAAAACAAMAAQAKAAwAAAACAAQAAQAKAA0AAAADAAEAAQALAAoAAAADAAIAAQAKAAwAAAADAAMAAQAKAAwAAAADAAQAAQAKAA0AAAAEAAEAAQALAAoAAAAEAAIAAQAKAAwAAAAEAAMAAQAKAAwAAAAEAAQAAQAKAA0AAAAFAAEAAQALAAoAAAAFAAIAAQAKAAwAAAAFAAMAAQAKAAwAAAAFAAQAAQAKAA0AAAAGAAEAAQALAAoAAAAGAAIAAQAKAAwAAAAGAAMAAQAKAAwAAAAGAAQAAQAKAA0AAAAHAAEAAQALAAoAAAAHAAIAAQAKAAwAAAAHAAMAAQAKAAwAAAAHAAQAAQAKAA0AAAAIAAEAAQALAAoAAAAIAAIAAQAKAAwAAAAIAAMAAQAKAAwAAAAIAAQAAQAKAA0AAAAJAAEAAQALAAoAAAAJAAIAAQAKAAwAAAAJAAMAAQAKAAwAAAAJAAQAAQAKAA0AAAAKAAEAAQALAAoAAAAKAAIAAQAKAAwAAAAKAAMAAQAKAAwAAAAKAAQAAQAKAA0AAAALAAEAAQALAAoAAAALAAIAAQAKAAwAAAALAAMAAQAKAAwAAAALAAQAAQAKAA0AAAAMAAEAAQALAAoAAAAMAAIAAQAKAAwAAAAMAAMAAQAKAAwAAAAMAAQAAQAKAA0AAAANAAEAAQALAAoAAAANAAIAAQAKAAwAAAANAAMAAQAKAAwAAAANAAQAAQAKAA0AAAAOAAEAAQALAAoAAAAOAAIAAQAKAAwAAAAOAAMAAQAKAAwAAAAOAAQAAQAKAA0AAAAPAAEAAQALAAoAAAAPAAIAAQAKAAwAAAAPAAMAAQAKAAwAAAAPAAQAAQAKAA0AAAAQAAEAAQALAAoAAAAQAAIAAQAKAAwAAAAQAAMAAQAKAAwAAAAQAAQAAQAKAA0AAAARAAEAAQALAAoAAAARAAIAAQAKAAwAAAARAAMAAQAKAAwAAAARAAQAAQAKAA0AAAASAAEAAQALAAoAAAASAAIAAQAKAAwAAAASAAMAAQAKAAwAAAASAAQAAQAKAA0AAAATAAEAAQALAAoAAAATAAIAAQAKAAwAAAATAAMAAQAKAAwAAAATAAQAAQAKAA0AAAAUAAEAAQALAAoAAAAUAAIAAQAKAAwAAAAUAAMAAQAKAAwAAAAUAAQAAQAKAA0AAAAVAAEAAQALAAoAAAAVAAIAAQAKAAwAAAAVAAMAAQAKAAwAAAAVAAQAAQAKAA0AAAAWAAEAAQALAAoAAAAWAAIAAQAKAAwAAAAWAAMAAQAKAAwAAAAWAAQAAQAKAA0AAAAXAAEAAQALAAoAAAAXAAIAAQAKAAwAAAAXAAMAAQAKAAwAAAAXAAQAAQAKAA0AAAAYAAEAAQALAAoAAAAYAAIAAQAKAAwAAAAYAAMAAQAKAAwAAAAYAAQAAQAKAA0AAAAZAAEAAQALAAoAAAAZAAIAAQAKAAwAAAAZAAMAAQAKAAwAAAAZAAQAAQAKAA0AAAAaAAEAAQALAAoAAAAaAAIAAQAKAAwAAAAaAAMAAQAKAAwAAAAaAAQAAQAKAA0AAAAbAAEAAQALAAoAAAAbAAIAAQAKAAwAAAAbAAMAAQAKAAwAAAAbAAQAAQAKAA0AAAAcAAEAAQALAAoAAAAcAAIAAQAKAAwAAAAcAAMAAQAKAAwAAAAcAAQAAQAKAA0AAAAdAAEAAQALAAoAAAAdAAIAAQAKAAwAAAAdAAMAAQAKAAwAAAAdAAQAAQAKAA0AAAAeAAEAAQALAAoAAAAeAAIAAQAKAAwAAAAeAAMAAQAKAAwAAAAeAAQAAQAKAA0AAAAfAAEAAQALAAoAAAAfAAIAAQAKAAwAAAAfAAMAAQAKAAwAAAAfAAQAAQAKAA0AAAAgAAEAAQAMAAoAAAAgAAIAAQAMAAwAAAAgAAMAAQAMAAwAAAAgAAQAAQAMAA0AAAA=")
+tile_set = SubResource("TileSet_jabbq")
+collision_visibility_mode = 1
 
 [node name="CharacterBody2D" parent="." unique_id=140440757 instance=ExtResource("3_b0wsk")]
 position = Vector2(2408, 45)
@@ -458,9 +461,6 @@ position = Vector2(-308.99994, -164)
 scale = Vector2(22.374, 22.374)
 texture = ExtResource("11_ue522")
 metadata/_edit_lock_ = true
-
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1239663943]
-tile_set = SubResource("TileSet_jabbq")
 
 [node name="Node2D" parent="." unique_id=138435714 instance=ExtResource("13_tsetf")]
 

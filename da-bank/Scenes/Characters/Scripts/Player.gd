@@ -126,19 +126,20 @@ func _input(event: InputEvent) -> void:
 	if HEALTH <= 0: return
 	if event.is_action_pressed("pick_up"):
 		var nearest := current_closest
-		if nearest is Bomb and GameState.current_state != GameState.State.PLANTING: return
-		
-		if nearest and hold_object == null:
-			$equip.play()
-			SignalBus._pick_up_object.emit(self, nearest)
-			hold_object = nearest
-		elif hold_object != null:
-			if randi_range(1, 100) == 100:
-				$secret_throw.play()
-			else:
-				$throw.play()
-			SignalBus._put_down_object.emit(self, hold_object)
-			hold_object = null
+		if nearest:
+			if nearest is Bomb and GameState.current_state != GameState.State.PLANTING: return
+			
+			if nearest and hold_object == null:
+				$equip.play()
+				SignalBus._pick_up_object.emit(self, nearest)
+				hold_object = nearest
+			elif hold_object != null:
+				if randi_range(1, 100) == 100:
+					$secret_throw.play()
+				else:
+					$throw.play()
+				SignalBus._put_down_object.emit(self, hold_object)
+				hold_object = null
 
 func _process(delta: float) -> void:
 	GlobalVariables.money = MONEY
