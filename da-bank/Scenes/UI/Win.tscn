@@ -29,8 +29,12 @@ script/source = "extends ProgressBar
 @onready var string: String = get_node(\"Label\").text
 var val := 0.0
 
+var ranks := [370,740,1110,1480,1850]
+var rank := 1
+var winser := false
+
 var time := 0.0
-var update_delay := 0.1
+var update_delay := 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -40,11 +44,23 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if time >= update_delay:
+		update_delay = 0.0
+		time = 0.0
+
 		if val < GlobalVariables.money:
-			val += 1.0
+			val += 10.0
 		if val >= GlobalVariables.money:
 			val = GlobalVariables.money
-	get_node(\"Label\").text = string % [val,0.0]
+		get_node(\"Label\").text = string % [val,ranks[clamp(rank,0,ranks.size()-1)]]
+		value = val
+		max_value = clamp(rank,0,ranks.size()-1)
+		if rank > ranks.size()-1 and !winser:
+			winser = true
+			update_delay = 1.0
+		if !winser:
+			if val >= ranks[rank]:
+				rank += 1
+				update_delay = 1.0
 	time += delta
 "
 
