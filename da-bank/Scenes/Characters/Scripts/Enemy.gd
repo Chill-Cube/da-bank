@@ -27,7 +27,9 @@ func _physics_process(delta: float) -> void:
 		if abs(distance_x) != distance_x: vel.x = -SPEED
 		else: vel.x = SPEED
 		var distance_y := player.global_position.y - global_position.y
-		if distance_y <= -125.0 and !player.is_on_floor() and abs(distance_x) <= 40.0: if is_on_floor(): jumping = true
+		if distance_y <= -125.0 and abs(distance_x) <= 40.0: if is_on_floor(): jumping = true
+		if is_on_floor() and is_on_wall():
+			jumping = true
 	super(delta)
 
 
