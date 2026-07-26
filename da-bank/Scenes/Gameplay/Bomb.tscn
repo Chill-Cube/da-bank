@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cwpnhcdc3eb40" path="res://Scenes/Gameplay/Scripts/bomb.gd" id="1_vlo8u"]
 [ext_resource type="Texture2D" uid="uid://cjx38e8unccgk" path="res://Assets/Untisdftled_Artwork.png" id="2_75bcl"]
-[ext_resource type="Shader" uid="uid://21vr0civvhgk" path="res://Objects/ObjectTemplate.gdshader" id="2_xtvwr"]
+[ext_resource type="Shader" uid="uid://21vr0civvhgk" path="res://Scenes/Objects/ObjectTemplate.gdshader" id="2_xtvwr"]
 [ext_resource type="AudioStream" uid="uid://p7m8d7lv72dp" path="res://SFX/184519__soundslikewillem__fuse(1).wav" id="3_lwtvr"]
 [ext_resource type="AudioStream" uid="uid://cqv6w4xpogvoa" path="res://SFX/446624__idkmrgarcia__explosion2.wav" id="4_e3tmc"]
 

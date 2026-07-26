@@ -139,3 +139,6 @@ func _input(event: InputEvent) -> void:
 				$throw.play()
 			SignalBus._put_down_object.emit(self, hold_object)
 			hold_object = null
+
+func _process(delta: float) -> void:
+	GlobalVariables.money = MONEY

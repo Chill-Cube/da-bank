@@ -3,11 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://db51f78xwt0ci" path="res://Scenes/Characters/Player.tscn" id="1_8uh7m"]
 [ext_resource type="Texture2D" uid="uid://c71b562ru51vu" path="res://icon.svg" id="2_6uqi0"]
 [ext_resource type="PackedScene" uid="uid://b3fycyaapy21n" path="res://Scenes/Gameplay/Bomb.tscn" id="3_6uqi0"]
-[ext_resource type="PackedScene" uid="uid://12bmw46s6lsm" path="res://Objects/ObjectTemplate.tscn" id="4_qnhm0"]
+[ext_resource type="PackedScene" uid="uid://12bmw46s6lsm" path="res://Scenes/Objects/ObjectTemplate.tscn" id="4_qnhm0"]
 [ext_resource type="PackedScene" uid="uid://cqjudepyt4e7f" path="res://Scenes/Gameplay/pick_up_truck.tscn" id="5_ywpx5"]
 [ext_resource type="PackedScene" uid="uid://cng57svuqmbja" path="res://Scenes/Gameplay/vault.tscn" id="6_g6muf"]
 [ext_resource type="Script" uid="uid://bifeptcshe5to" path="res://Scenes/Gameplay/animation_player.gd" id="7_ga7i2"]
-[ext_resource type="Script" uid="uid://dkex5lbj4bmse" path="res://Scenes/Gameplay/area_2d.gd" id="8_6c0xd"]
 [ext_resource type="PackedScene" uid="uid://q3gsivj82hu5" path="res://Scenes/Gameplay/Spawner.tscn" id="9_6c8aw"]
 [ext_resource type="Texture2D" uid="uid://bvl2cet4ih4k7" path="res://Assets/Items.png" id="10_nrrav"]
 [ext_resource type="Texture2D" uid="uid://gjo423hgf51w" path="res://Assets/1.png" id="11_qoumo"]
@@ -134,9 +133,6 @@ _data = {
 &"leave2": SubResource("Animation_qoumo")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6c8aw"]
-size = Vector2(122, 754.5)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_qoumo"]
 atlas = ExtResource("10_nrrav")
 region = Rect2(282, 394.5, 80, 88)
@@ -228,14 +224,6 @@ scale = Vector2(7.245283, 7.155976)
 libraries/ = SubResource("AnimationLibrary_nrrav")
 script = ExtResource("7_ga7i2")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=868960163]
-position = Vector2(1407, 0)
-script = ExtResource("8_6c0xd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1245403031]
-position = Vector2(212, -253)
-shape = SubResource("RectangleShape2D_6c8aw")
-
 [node name="Spawner" parent="." unique_id=1841466848 instance=ExtResource("9_6c8aw")]
 position = Vector2(-2945, -613)
 max_enemies = 10
@@ -275,8 +263,6 @@ position = Vector2(-308.99994, -164)
 scale = Vector2(22.374, 22.374)
 texture = ExtResource("11_qoumo")
 metadata/_edit_lock_ = true
-
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 
 [editable path="Player"]
 [editable path="Bomb"]
