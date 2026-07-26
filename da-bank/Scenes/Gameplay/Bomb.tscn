@@ -54,7 +54,7 @@ collision_mask = 4
 script = ExtResource("1_vlo8u")
 
 [node name="Timer" type="Timer" parent="." unique_id=1880891319]
-wait_time = 30.0
+wait_time = 60.0
 one_shot = true
 
 [node name="Visual" type="Sprite2D" parent="." unique_id=911913313]
