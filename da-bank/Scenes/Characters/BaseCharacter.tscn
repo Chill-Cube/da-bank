@@ -11,6 +11,8 @@ height = 174.0
 
 [node name="Character" type="CharacterBody2D" unique_id=664525115]
 script = ExtResource("1_8jciq")
+SPEED = 900.0
+JUMP_VELOCITY = -700.0
 
 [node name="Dmg" type="AudioStreamPlayer" parent="." unique_id=2131352999]
 stream = ExtResource("2_b3vq0")

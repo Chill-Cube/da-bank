@@ -43,12 +43,14 @@ scale = Vector2(1, 0.9999999)
 shape = SubResource("RectangleShape2D_i1qvc")
 
 [node name="Truck" type="Sprite2D" parent="." unique_id=919585520]
+modulate = Color(0.5077972, 0.48284435, 0.89209807, 1)
 texture_filter = 1
 position = Vector2(-296, 116)
 scale = Vector2(2.9433892, 2.9433897)
 texture = SubResource("AtlasTexture_j2haq")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=906421012]
+visible = false
 collision_layer = 5
 collision_mask = 5
 

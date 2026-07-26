@@ -2,26 +2,20 @@
 
 [ext_resource type="SpriteFrames" uid="uid://8s02amvmx7qs" path="res://Assets/Animations.tres" id="1_qdxyj"]
 [ext_resource type="Texture2D" uid="uid://lo6qn3ikdes4" path="res://Assets/important_images.png" id="2_knpmx"]
-[ext_resource type="FontFile" uid="uid://y103srfu2300" path="res://Daydream DEMO.otf" id="3_vnfq8"]
 [ext_resource type="Texture2D" uid="uid://gjo423hgf51w" path="res://Assets/1.png" id="4_cgn5s"]
 [ext_resource type="FontFile" uid="uid://boms6cd2ves1" path="res://VCR_OSD_MONO_1.001 2.ttf" id="5_nujy2"]
+[ext_resource type="Texture2D" uid="uid://tijpkd8oeyc8" path="res://Assets/Untdfgdfgdf.png" id="6_nujy2"]
 [ext_resource type="Script" uid="uid://jkh42eqdwjsf" path="res://Scenes/UI/Scripts/button.gd" id="6_rdve1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vnfq8"]
 atlas = ExtResource("2_knpmx")
 region = Rect2(37, 45.5, 328, 150)
 
-[sub_resource type="Gradient" id="Gradient_3qydi"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(1, 1, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nujy2"]
+bg_color = Color(0.06601388, 0.061952397, 0.0787222, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_nujy2"]
-gradient = SubResource("Gradient_3qydi")
-width = 24
-height = 24
-
-[sub_resource type="Gradient" id="Gradient_rdve1"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdve1"]
+bg_color = Color(0.40643764, 0.7442134, 1.1551381e-06, 1)
 
 [sub_resource type="GDScript" id="GDScript_nujy2"]
 script/source = "extends ProgressBar
@@ -64,9 +58,22 @@ func _process(delta: float) -> void:
 	time += delta
 "
 
+[sub_resource type="Gradient" id="Gradient_3qydi"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nujy2"]
+gradient = SubResource("Gradient_3qydi")
+width = 24
+height = 24
+
+[sub_resource type="Gradient" id="Gradient_rdve1"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="Win" type="Node2D" unique_id=1437464111]
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=322011597]
+self_modulate = Color(0.7125845, 0.7152483, 0.95435196, 1)
 texture_filter = 1
 position = Vector2(576, 404.56763)
 scale = Vector2(0.39718094, 0.3856764)
@@ -74,6 +81,7 @@ sprite_frames = ExtResource("1_qdxyj")
 animation = &"Death"
 
 [node name="Truck" type="Sprite2D" parent="." unique_id=99126850]
+modulate = Color(0.5058824, 0.48235294, 0.8901961, 1)
 texture_filter = 1
 position = Vector2(492.00003, 451.56763)
 scale = Vector2(1.0742086, 1.0742087)
@@ -85,47 +93,20 @@ offset_top = 104.0
 offset_right = 992.0
 offset_bottom = 192.0
 theme_override_colors/font_color = Color(0.31764707, 1, 0.46666667, 1)
-theme_override_fonts/font = ExtResource("3_vnfq8")
-theme_override_font_sizes/font_size = 54
-text = "robbery success!"
+theme_override_fonts/font = ExtResource("5_nujy2")
+theme_override_font_sizes/font_size = 82
+text = "ROBBERY SUCCESS!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="1" type="Sprite2D" parent="." unique_id=1205228451]
+modulate = Color(0.5058824, 0.48235294, 0.8901961, 1)
 z_index = -20
 texture_filter = 1
 position = Vector2(575.00006, 298)
 scale = Vector2(2.134259, 2.1342592)
 texture = ExtResource("4_cgn5s")
 metadata/_edit_lock_ = true
-
-[node name="Dust" type="CPUParticles2D" parent="1" unique_id=59414344]
-position = Vector2(23.895851, 97.926254)
-amount = 4
-texture = SubResource("GradientTexture2D_nujy2")
-lifetime = 0.35000000000000003
-explosiveness = 0.08
-direction = Vector2(1, -0.5)
-spread = 25.0
-initial_velocity_min = 400.0
-initial_velocity_max = 500.0
-angular_velocity_min = -500.0
-angular_velocity_max = -500.0
-color = Color(1, 1, 1, 0.19607843)
-color_ramp = SubResource("Gradient_rdve1")
-
-[node name="Dust2" type="CPUParticles2D" parent="1" unique_id=189874319]
-position = Vector2(-83.40134, 101.67462)
-amount = 4
-texture = SubResource("GradientTexture2D_nujy2")
-lifetime = 0.35000000000000003
-explosiveness = 0.08
-direction = Vector2(1, -0.5)
-spread = 25.0
-initial_velocity_min = 400.0
-initial_velocity_max = 500.0
-angular_velocity_min = -500.0
-angular_velocity_max = -500.0
-color = Color(1, 1, 1, 0.19607843)
-color_ramp = SubResource("Gradient_rdve1")
 
 [node name="Button" type="Button" parent="." unique_id=474045809]
 offset_left = 412.0
@@ -138,10 +119,12 @@ text = "Retry"
 script = ExtResource("6_rdve1")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=476333946]
-offset_left = 485.0
-offset_top = 229.0
-offset_right = 693.0
-offset_bottom = 256.0
+offset_left = 219.0
+offset_top = 223.0
+offset_right = 920.55554
+offset_bottom = 262.0
+theme_override_styles/background = SubResource("StyleBoxFlat_nujy2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rdve1")
 show_percentage = false
 script = SubResource("GDScript_nujy2")
 
@@ -155,5 +138,54 @@ grow_vertical = 2
 text = "$%d / $%d"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1426239948]
+z_index = -4
+scale = Vector2(0.3303027, 0.3303027)
+scroll_offset = Vector2(0, 418)
+repeat_size = Vector2(1216.785, 0)
+autoscroll = Vector2(700, 0)
+repeat_times = 100
+
+[node name="Untdfgdfgdf" type="Sprite2D" parent="Parallax2D" unique_id=29474466]
+modulate = Color(0.5058824, 0.48235294, 0.8901961, 1)
+z_index = -1
+texture_filter = 1
+position = Vector2(-2130, -475)
+scale = Vector2(4.8789063, 4.8789063)
+texture = ExtResource("6_nujy2")
+
+[node name="Dust" type="CPUParticles2D" parent="." unique_id=59414344]
+z_index = 1
+position = Vector2(626, 507)
+scale = Vector2(2.134259, 2.1342592)
+amount = 4
+texture = SubResource("GradientTexture2D_nujy2")
+lifetime = 0.35000000000000003
+explosiveness = 0.08
+direction = Vector2(1, -0.5)
+spread = 25.0
+initial_velocity_min = 400.0
+initial_velocity_max = 500.0
+angular_velocity_min = -500.0
+angular_velocity_max = -500.0
+color = Color(1, 1, 1, 0.19607843)
+color_ramp = SubResource("Gradient_rdve1")
+
+[node name="Dust2" type="CPUParticles2D" parent="." unique_id=189874319]
+position = Vector2(397, 515)
+scale = Vector2(2.134259, 2.1342592)
+amount = 4
+texture = SubResource("GradientTexture2D_nujy2")
+lifetime = 0.35000000000000003
+explosiveness = 0.08
+direction = Vector2(1, -0.5)
+spread = 25.0
+initial_velocity_min = 400.0
+initial_velocity_max = 500.0
+angular_velocity_min = -500.0
+angular_velocity_max = -500.0
+color = Color(1, 1, 1, 0.19607843)
+color_ramp = SubResource("Gradient_rdve1")
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
