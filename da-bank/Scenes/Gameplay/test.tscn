@@ -4,12 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://c71b562ru51vu" path="res://icon.svg" id="2_6uqi0"]
 [ext_resource type="PackedScene" uid="uid://b3fycyaapy21n" path="res://Scenes/Gameplay/Bomb.tscn" id="3_6uqi0"]
 [ext_resource type="PackedScene" uid="uid://12bmw46s6lsm" path="res://Objects/ObjectTemplate.tscn" id="4_qnhm0"]
-[ext_resource type="PackedScene" path="res://Scenes/Gameplay/pick_up_truck.tscn" id="5_ywpx5"]
-[ext_resource type="PackedScene" path="res://Scenes/Gameplay/vault.tscn" id="6_g6muf"]
-[ext_resource type="Script" path="res://Scenes/Gameplay/animation_player.gd" id="7_ga7i2"]
-[ext_resource type="Script" path="res://Scenes/Gameplay/area_2d.gd" id="8_6c0xd"]
-[ext_resource type="PackedScene" path="res://Scenes/Gameplay/Spawner.tscn" id="9_6c8aw"]
+[ext_resource type="PackedScene" uid="uid://cqjudepyt4e7f" path="res://Scenes/Gameplay/pick_up_truck.tscn" id="5_ywpx5"]
+[ext_resource type="PackedScene" uid="uid://cng57svuqmbja" path="res://Scenes/Gameplay/vault.tscn" id="6_g6muf"]
+[ext_resource type="Script" uid="uid://bifeptcshe5to" path="res://Scenes/Gameplay/animation_player.gd" id="7_ga7i2"]
+[ext_resource type="Script" uid="uid://dkex5lbj4bmse" path="res://Scenes/Gameplay/area_2d.gd" id="8_6c0xd"]
+[ext_resource type="PackedScene" uid="uid://q3gsivj82hu5" path="res://Scenes/Gameplay/Spawner.tscn" id="9_6c8aw"]
 [ext_resource type="Texture2D" uid="uid://bvl2cet4ih4k7" path="res://Assets/Items.png" id="10_nrrav"]
+[ext_resource type="Texture2D" uid="uid://gjo423hgf51w" path="res://Assets/1.png" id="11_qoumo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyta"]
 size = Vector2(1341.3093, 20)
@@ -157,6 +158,7 @@ scale = Vector2(0.9999999, 1)
 shape = SubResource("RectangleShape2D_ppyta")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=433514754]
+texture_filter = 1
 position = Vector2(-84.72533, 358.00458)
 scale = Vector2(10.461344, 5.7500715)
 texture = ExtResource("2_6uqi0")
@@ -265,6 +267,14 @@ value = 20.0
 [node name="Visual" parent="Object3" index="0" unique_id=1938035943]
 position = Vector2(-2, 17)
 texture = SubResource("AtlasTexture_qoumo")
+
+[node name="1" type="Sprite2D" parent="." unique_id=1729569172]
+z_index = -20
+texture_filter = 1
+position = Vector2(-308.99994, -164)
+scale = Vector2(22.374, 22.374)
+texture = ExtResource("11_qoumo")
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 

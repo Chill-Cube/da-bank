@@ -18,8 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 SignalBus="*uid://ck20rlh1knjxp"
-GameState="*uid://cf07xlgiox83w"
 TransitionScreen="*uid://dt0am5r8uwc6a"
+GameState="*uid://cf07xlgiox83w"
 
 [debug]
 

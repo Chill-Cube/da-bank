@@ -20,11 +20,31 @@ var offset := Vector2(0, 200)
 var thrown := false
 var aim_direction := Vector2.RIGHT
 
+@onready var visual: Sprite2D = $Visual
+
 func _ready() -> void:
 	SignalBus._pick_up_object.connect(pick_up)
 	SignalBus._put_down_object.connect(put_down)
 	SignalBus._object_in_truck.connect(object_sold)
+	visual.material = visual.material.duplicate()
 	add_to_group("pickups")
+
+var outline_tween: Tween
+var current_thickness: float = 0.0
+
+
+func set_outlined(state: bool) -> void:
+	if outline_tween:
+		outline_tween.kill()
+
+	outline_tween = create_tween()
+	var target := 3.0 if state else 0.0
+	outline_tween.tween_method(_set_thickness, current_thickness, target, 0.15)
+
+
+func _set_thickness(thick: float) -> void:
+	current_thickness = thick
+	visual.material.set_shader_parameter("thickness", thick)
 	
 func object_sold(_money : float, object : PickUpObject) -> void:
 	if object == self:

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bldnyls3itvuv" path="res://Scenes/UI/Scripts/label.gd" id="1_ne75i"]
 [ext_resource type="Script" uid="uid://bgcyeflctqoam" path="res://Scenes/UI/objective.gd" id="2_fdl0h"]
 [ext_resource type="Script" uid="uid://b3ye21vqleawi" path="res://Scenes/UI/Scripts/money.gd" id="2_ny26j"]
+[ext_resource type="FontFile" uid="uid://boms6cd2ves1" path="res://VCR_OSD_MONO_1.001 2.ttf" id="3_7wqu8"]
 [ext_resource type="Script" uid="uid://738b6v6ayigj" path="res://Scenes/UI/letterbox.gd" id="5_vsu76"]
 [ext_resource type="Script" uid="uid://dv3tkuk6dwobp" path="res://Scenes/UI/health_2.gd" id="6_ux5h0"]
 [ext_resource type="Texture2D" uid="uid://b2fwecfpaj76w" path="res://SFX/955-9550236_red-vignette-background-peach.png" id="7_mqf2c"]
@@ -123,6 +124,9 @@ _data = {
 &"normal": SubResource("Animation_ny26j")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7wqu8"]
+bg_color = Color(0.8282584, 0.15891814, 0.31260112, 1)
+
 [node name="Hud" type="CanvasLayer" unique_id=466858541]
 script = ExtResource("1_8glcj")
 
@@ -136,6 +140,7 @@ offset_top = 53.0
 offset_right = 75.0
 offset_bottom = 121.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_7wqu8")
 theme_override_font_sizes/font_size = 49
 text = "00:00"
 script = ExtResource("1_ne75i")
@@ -149,6 +154,7 @@ offset_top = 1.0
 offset_right = 473.0
 offset_bottom = 69.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_7wqu8")
 theme_override_font_sizes/font_size = 40
 text = "Go into the bank"
 horizontal_alignment = 1
@@ -156,9 +162,10 @@ script = ExtResource("2_fdl0h")
 
 [node name="Money" type="Label" parent="." unique_id=17168329]
 offset_left = 535.0
-offset_top = 535.0
+offset_top = 548.0
 offset_right = 660.0
 offset_bottom = 586.0
+theme_override_fonts/font = ExtResource("3_7wqu8")
 theme_override_font_sizes/font_size = 37
 text = "$100"
 horizontal_alignment = 1
@@ -219,10 +226,13 @@ offset_left = 329.0
 offset_top = 588.0
 offset_right = 862.3333
 offset_bottom = 641.0
+theme_override_fonts/font = ExtResource("3_7wqu8")
 theme_override_font_sizes/font_size = 35
+theme_override_styles/fill = SubResource("StyleBoxFlat_7wqu8")
 script = ExtResource("6_ux5h0")
 
 [node name="Vignette" type="Sprite2D" parent="." unique_id=1939849853]
+visible = false
 position = Vector2(579.55554, 327)
 scale = Vector2(0.5994214, 0.59999996)
 texture = ExtResource("7_mqf2c")

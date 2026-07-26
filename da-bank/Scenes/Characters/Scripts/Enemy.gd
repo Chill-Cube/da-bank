@@ -20,6 +20,7 @@ func _physics_process(delta: float) -> void:
 	if HEALTH <= 0.0:
 		sprite.rotation = lerp(sprite.rotation, deg_to_rad(-90), 0.1)
 		sprite.offset = lerp(sprite.offset, Vector2(71.185, 0), 0.1)
+		sprite.modulate.a = lerp(sprite.modulate.a, 0.0, 0.1)
 	if get_parent().get_parent().get_parent().get_node_or_null("Player") and HEALTH > 0.0:
 		var player: Player = get_parent().get_parent().get_parent().get_node("Player")
 		var distance_x := player.global_position.x - global_position.x

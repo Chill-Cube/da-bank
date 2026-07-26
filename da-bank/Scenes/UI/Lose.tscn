@@ -1,9 +1,53 @@
 [gd_scene format=3 uid="uid://bmlovgq32dcn1"]
 
+[ext_resource type="FontFile" uid="uid://y103srfu2300" path="res://Daydream DEMO.otf" id="1_cbv5c"]
+[ext_resource type="FontFile" uid="uid://boms6cd2ves1" path="res://VCR_OSD_MONO_1.001 2.ttf" id="2_pkwek"]
+[ext_resource type="Script" uid="uid://jkh42eqdwjsf" path="res://Scenes/UI/button.gd" id="2_rupua"]
+
+[sub_resource type="Gradient" id="Gradient_rupua"]
+colors = PackedColorArray(0.06469653, 0.06469653, 0.06469653, 1, 0.5417978, 0, 0.047917396, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pkwek"]
+gradient = SubResource("Gradient_rupua")
+
 [node name="Win" type="Node2D" unique_id=1437464111]
 
 [node name="Label" type="Label" parent="." unique_id=2024347686]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "you got caught
-shame on you"
+offset_left = 306.0
+offset_top = 104.0
+offset_right = 939.0
+offset_bottom = 192.0
+theme_override_fonts/font = ExtResource("1_cbv5c")
+theme_override_font_sizes/font_size = 54
+text = "got caught..."
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=527385281]
+z_index = -1
+offset_left = 1216.2396
+offset_top = 5.3163523e-05
+offset_right = 2369.2397
+offset_bottom = 1834.2396
+rotation = 1.5707964
+texture = SubResource("GradientTexture2D_pkwek")
+
+[node name="Button" type="Button" parent="." unique_id=778577943]
+offset_left = 298.0
+offset_top = 528.0
+offset_right = 595.0
+offset_bottom = 629.0
+theme_override_fonts/font = ExtResource("2_pkwek")
+theme_override_font_sizes/font_size = 53
+text = "Retry"
+script = ExtResource("2_rupua")
+
+[node name="Button2" type="Button" parent="." unique_id=1034275848]
+offset_left = 635.0
+offset_top = 528.0
+offset_right = 932.0
+offset_bottom = 629.0
+theme_override_fonts/font = ExtResource("2_pkwek")
+theme_override_font_sizes/font_size = 53
+text = "Exit"
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Button2" to="Button" method="_on_button_2_pressed"]

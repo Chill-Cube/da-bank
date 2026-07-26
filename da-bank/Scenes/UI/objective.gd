@@ -1,7 +1,7 @@
 extends Label
 
 
-const STATE_NAMES := {
+var STATE_NAMES := {
 	GameState.State.ENTERING: "Go into the bank",
 	GameState.State.PLANTING: "Plant the bomb on the vault",
 	GameState.State.DEFENDING: "Survive until the bomb explodes!",

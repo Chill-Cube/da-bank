@@ -30,6 +30,9 @@ func animation_playing(animation: String) -> bool:
 var damage_tween: Tween
 
 func take_damage(amount: float, knockback: Vector2 = Vector2.ZERO) -> void:
+	if GameState.current_state == GameState.State.LEAVING: return
+	if HEALTH < 0.0: return
+	
 	HEALTH -= amount
 
 	velocity += knockback * KNOCKBACK_RESISTANCE

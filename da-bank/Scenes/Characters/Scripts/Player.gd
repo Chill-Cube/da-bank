@@ -6,6 +6,7 @@ var hold_object : PickUpObject = null
 var min_distance := 250.0
 var double_jump := false
 var fallen := false
+var current_closest: PickUpObject = null
 
 func _ready():
 	animation_key = "Player"
@@ -15,6 +16,7 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	if sprite.rotation == deg_to_rad(90): return
 	
+	_update_closest_pickup()
 	
 	var health_percent := HEALTH / MAX_HEALTH
 	$Hud/Vignette.modulate.a = lerp(1.0, 0.0, health_percent)
@@ -46,7 +48,17 @@ func find_closest_pickup(from_position: Vector2) -> PickUpObject:
 			closest = pickup
 
 	return closest
-	
+
+func _update_closest_pickup() -> void:
+	var new_closest := find_closest_pickup(global_position)
+
+	if new_closest != current_closest:
+		if current_closest:
+			current_closest.set_outlined(false)
+		if new_closest:
+			new_closest.set_outlined(true)
+		current_closest = new_closest
+
 func get_money(money : float, _object : PickUpObject) -> void:
 	MONEY += money
 	$ching.play()
@@ -58,6 +70,11 @@ func die():
 	if dying:
 		return
 	dying = true
+	
+	if current_closest:
+		current_closest.set_outlined(false)
+		current_closest = null
+	
 	for child in $Hud.get_children():
 		if child.name != "Vignette" and child is Control:
 			child.visible = false
@@ -106,7 +123,7 @@ func die():
 func _input(event: InputEvent) -> void:
 	if HEALTH <= 0: return
 	if event.is_action_pressed("pick_up"):
-		var nearest := find_closest_pickup(global_position)
+		var nearest := current_closest
 		if nearest is Bomb and GameState.current_state != GameState.State.PLANTING: return
 		
 		if nearest and hold_object == null:

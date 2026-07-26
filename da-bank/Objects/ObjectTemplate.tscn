@@ -3,6 +3,42 @@
 [ext_resource type="Script" uid="uid://c07jnq1wthwix" path="res://Objects/Objects.gd" id="1_2uv53"]
 [ext_resource type="Texture2D" uid="uid://bvl2cet4ih4k7" path="res://Assets/Items.png" id="1_kwigx"]
 
+[sub_resource type="Shader" id="Shader_2uv53"]
+code = "shader_type canvas_item;
+
+uniform vec4 outline_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float thickness : hint_range(0.0, 10.0) = 2.0;
+
+void fragment() {
+	vec4 col = texture(TEXTURE, UV);
+
+	if (col.a < 1.0) {
+		vec2 texel = thickness / vec2(textureSize(TEXTURE, 0));
+
+		float alpha = 0.0;
+		alpha += texture(TEXTURE, UV + vec2(texel.x, 0.0)).a;
+		alpha += texture(TEXTURE, UV + vec2(-texel.x, 0.0)).a;
+		alpha += texture(TEXTURE, UV + vec2(0.0, texel.y)).a;
+		alpha += texture(TEXTURE, UV + vec2(0.0, -texel.y)).a;
+		alpha += texture(TEXTURE, UV + vec2(texel.x, texel.y)).a;
+		alpha += texture(TEXTURE, UV + vec2(-texel.x, texel.y)).a;
+		alpha += texture(TEXTURE, UV + vec2(texel.x, -texel.y)).a;
+		alpha += texture(TEXTURE, UV + vec2(-texel.x, -texel.y)).a;
+
+		if (alpha > 0.0) {
+			col = outline_color;
+			col.a = min(alpha, 1.0);
+		}
+	}
+
+	COLOR = col;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ss6vc"]
+shader = SubResource("Shader_2uv53")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/thickness = 0.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_2uv53"]
 atlas = ExtResource("1_kwigx")
 region = Rect2(36, 384.5, 90, 117)
@@ -23,6 +59,7 @@ weight = 200.0
 
 [node name="Visual" type="Sprite2D" parent="." unique_id=1938035943]
 texture_filter = 1
+material = SubResource("ShaderMaterial_ss6vc")
 texture = SubResource("AtlasTexture_2uv53")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=17973656]

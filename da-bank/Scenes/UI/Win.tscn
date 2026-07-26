@@ -1,9 +1,99 @@
 [gd_scene format=3 uid="uid://4du4viou61kk"]
 
+[ext_resource type="SpriteFrames" uid="uid://8s02amvmx7qs" path="res://Assets/Animations.tres" id="1_qdxyj"]
+[ext_resource type="Texture2D" uid="uid://lo6qn3ikdes4" path="res://Assets/important_images.png" id="2_knpmx"]
+[ext_resource type="FontFile" uid="uid://y103srfu2300" path="res://Daydream DEMO.otf" id="3_vnfq8"]
+[ext_resource type="Texture2D" uid="uid://gjo423hgf51w" path="res://Assets/1.png" id="4_cgn5s"]
+[ext_resource type="FontFile" uid="uid://boms6cd2ves1" path="res://VCR_OSD_MONO_1.001 2.ttf" id="5_nujy2"]
+[ext_resource type="Script" uid="uid://jkh42eqdwjsf" path="res://Scenes/UI/button.gd" id="6_rdve1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnfq8"]
+atlas = ExtResource("2_knpmx")
+region = Rect2(37, 45.5, 328, 150)
+
+[sub_resource type="Gradient" id="Gradient_3qydi"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nujy2"]
+gradient = SubResource("Gradient_3qydi")
+width = 24
+height = 24
+
+[sub_resource type="Gradient" id="Gradient_rdve1"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="Win" type="Node2D" unique_id=1437464111]
 
-[node name="Label" type="Label" parent="." unique_id=2024347686]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "you're win
-congrats"
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=322011597]
+texture_filter = 1
+position = Vector2(576, 404.56763)
+scale = Vector2(0.39718094, 0.3856764)
+sprite_frames = ExtResource("1_qdxyj")
+animation = &"Death"
+
+[node name="Truck" type="Sprite2D" parent="." unique_id=99126850]
+texture_filter = 1
+position = Vector2(492.00003, 451.56763)
+scale = Vector2(1.0742086, 1.0742087)
+texture = SubResource("AtlasTexture_vnfq8")
+
+[node name="Label2" type="Label" parent="." unique_id=918611536]
+offset_left = 142.0
+offset_top = 104.0
+offset_right = 992.0
+offset_bottom = 192.0
+theme_override_colors/font_color = Color(0.31764707, 1, 0.46666667, 1)
+theme_override_fonts/font = ExtResource("3_vnfq8")
+theme_override_font_sizes/font_size = 54
+text = "robbery success!"
+
+[node name="1" type="Sprite2D" parent="." unique_id=1205228451]
+z_index = -20
+texture_filter = 1
+position = Vector2(575.00006, 298)
+scale = Vector2(2.134259, 2.1342592)
+texture = ExtResource("4_cgn5s")
+metadata/_edit_lock_ = true
+
+[node name="Dust" type="CPUParticles2D" parent="1" unique_id=59414344]
+position = Vector2(23.895851, 97.926254)
+amount = 4
+texture = SubResource("GradientTexture2D_nujy2")
+lifetime = 0.35000000000000003
+explosiveness = 0.08
+direction = Vector2(1, -0.5)
+spread = 25.0
+initial_velocity_min = 400.0
+initial_velocity_max = 500.0
+angular_velocity_min = -500.0
+angular_velocity_max = -500.0
+color = Color(1, 1, 1, 0.19607843)
+color_ramp = SubResource("Gradient_rdve1")
+
+[node name="Dust2" type="CPUParticles2D" parent="1" unique_id=189874319]
+position = Vector2(-83.40134, 101.67462)
+amount = 4
+texture = SubResource("GradientTexture2D_nujy2")
+lifetime = 0.35000000000000003
+explosiveness = 0.08
+direction = Vector2(1, -0.5)
+spread = 25.0
+initial_velocity_min = 400.0
+initial_velocity_max = 500.0
+angular_velocity_min = -500.0
+angular_velocity_max = -500.0
+color = Color(1, 1, 1, 0.19607843)
+color_ramp = SubResource("Gradient_rdve1")
+
+[node name="Button" type="Button" parent="." unique_id=474045809]
+offset_left = 412.0
+offset_top = 528.0
+offset_right = 709.0
+offset_bottom = 629.0
+theme_override_fonts/font = ExtResource("5_nujy2")
+theme_override_font_sizes/font_size = 53
+text = "Retry"
+script = ExtResource("6_rdve1")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
