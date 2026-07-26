@@ -33,6 +33,8 @@ func pick_up(player: Player, object: Node2D) -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	SignalBus._bomb_time_updated.emit(timer.time_left)
+	if timer.time_left == 8 and !$click.playing:
+		$click.play()
 	
 func _on_timer_timeout() -> void:
 	SignalBus._bomb_exploded.emit()
