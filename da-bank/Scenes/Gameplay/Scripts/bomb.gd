@@ -8,14 +8,18 @@ func _plant_bomb() -> void:
 	timer.start()
 	$FuseSmoke.emitting = true
 	velocity = Vector2.ZERO
-	ticking = true
+	
+	
+	SignalBus._play_bars.emit()
 	$Fizz.play()
+	
 	can_fall = false
+	await(get_tree().create_timer(2).timeout) 
 	GameState.change_state(GameState.State.DEFENDING)
 	$Alarm.play()
-
-	SignalBus._play_bars.emit()
-	await(get_tree().create_timer(2).timeout) 
+	
+	await(get_tree().create_timer(0.5).timeout) 
+	ticking = true
 	SignalBus._bomb_planted.emit()
 	SignalBus._play_cutscene.emit(5)
 

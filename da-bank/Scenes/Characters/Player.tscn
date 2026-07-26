@@ -18,8 +18,8 @@ height = 174.0
 
 [node name="Player" type="CharacterBody2D" unique_id=664525115]
 script = ExtResource("1_tok1r")
-SPEED = 1000.0
-JUMP_VELOCITY = -700.0
+SPEED = 1300.0
+JUMP_VELOCITY = -900.0
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1635229560]
 texture_filter = 1

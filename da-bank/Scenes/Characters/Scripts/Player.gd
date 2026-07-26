@@ -31,6 +31,7 @@ func _physics_process(delta: float) -> void:
 		if !jumping:
 			double_jump = !double_jump
 		jumping = true
+		jump_particles.emitting = true
 
 	var direction := Input.get_axis("left", "right")
 	vel.x = direction * SPEED
