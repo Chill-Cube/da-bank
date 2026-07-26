@@ -36,4 +36,5 @@ func _on_timer_timeout() -> void:
 	$Particles.emitting = true
 	$Smoke.emitting = true
 	$Visual.visible = false
+	$Fizz.stop()
 	GameState.change_state(GameState.State.STEALING)
