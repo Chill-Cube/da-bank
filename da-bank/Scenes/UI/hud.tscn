@@ -6,11 +6,15 @@
 [ext_resource type="Script" uid="uid://b3ye21vqleawi" path="res://Scenes/UI/Scripts/money.gd" id="2_ny26j"]
 [ext_resource type="FontFile" uid="uid://boms6cd2ves1" path="res://VCR_OSD_MONO_1.001 2.ttf" id="3_7wqu8"]
 [ext_resource type="Script" uid="uid://738b6v6ayigj" path="res://Scenes/UI/letterbox.gd" id="5_vsu76"]
+[ext_resource type="Script" uid="uid://c83iwruqfi10q" path="res://Scenes/UI/panel_3.gd" id="6_fqivn"]
 [ext_resource type="Script" uid="uid://dv3tkuk6dwobp" path="res://Scenes/UI/health_2.gd" id="6_ux5h0"]
 [ext_resource type="Texture2D" uid="uid://b2fwecfpaj76w" path="res://SFX/955-9550236_red-vignette-background-peach.png" id="7_mqf2c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ny26j"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqivn"]
+bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Animation" id="Animation_fdl0h"]
 length = 0.001
@@ -117,11 +121,15 @@ tracks/1/keys = {
 "values": [Vector2(0, 510), Vector2(0, 647), Vector2(0, 648)]
 }
 
+[sub_resource type="Animation" id="Animation_qdh5o"]
+resource_name = "ya dead"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vsu76"]
 _data = {
 &"RESET": SubResource("Animation_fdl0h"),
 &"letter_boxing": SubResource("Animation_8glcj"),
-&"normal": SubResource("Animation_ny26j")
+&"normal": SubResource("Animation_ny26j"),
+&"ya dead": SubResource("Animation_qdh5o")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7wqu8"]
@@ -177,6 +185,16 @@ offset_top = 648.0
 offset_right = 1152.0
 offset_bottom = 863.99976
 theme_override_styles/panel = SubResource("StyleBoxFlat_ny26j")
+
+[node name="Panel3" type="Panel" parent="." unique_id=368862130]
+visible = false
+modulate = Color(0.9756643, 5.6072327e-06, 2.117753e-06, 1)
+z_index = 20
+offset_top = -3.0
+offset_right = 1152.0
+offset_bottom = 650.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fqivn")
+script = ExtResource("6_fqivn")
 
 [node name="BustedScreen" type="Panel" parent="." unique_id=1644515055]
 visible = false

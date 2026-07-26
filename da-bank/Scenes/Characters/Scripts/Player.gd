@@ -79,6 +79,7 @@ func die():
 		if child.name != "Vignette" and child is Control:
 			child.visible = false
 			
+	SignalBus._death_cutscene.emit()
 	var tween := create_tween()
 
 	tween.set_ignore_time_scale(true)
@@ -117,6 +118,7 @@ func die():
 	TransitionScreen.get_node("AnimationPlayer").speed_scale = 0.107 / Engine.time_scale
 	TransitionScreen.transition()
 	await TransitionScreen.on_transition_finished
+	Engine.time_scale = 1
 	get_tree().change_scene_to_file("res://Scenes/UI/Lose.tscn")
 	
 
