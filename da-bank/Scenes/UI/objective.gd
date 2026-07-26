@@ -14,4 +14,5 @@ func _ready() -> void:
 	GameState.state_changed.connect(change_text)
 
 func change_text(state : GameState.State):
+	$AnimationPlayer.play("nudge")
 	text = STATE_NAMES[state]

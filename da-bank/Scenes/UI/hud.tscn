@@ -7,8 +7,49 @@
 [ext_resource type="FontFile" uid="uid://boms6cd2ves1" path="res://VCR_OSD_MONO_1.001 2.ttf" id="3_7wqu8"]
 [ext_resource type="Script" uid="uid://738b6v6ayigj" path="res://Scenes/UI/letterbox.gd" id="5_vsu76"]
 [ext_resource type="Script" uid="uid://c83iwruqfi10q" path="res://Scenes/UI/panel_3.gd" id="6_fqivn"]
+[ext_resource type="Script" uid="uid://74d8tqcjc6s0" path="res://Scenes/UI/hint.gd" id="6_qdh5o"]
 [ext_resource type="Script" uid="uid://dv3tkuk6dwobp" path="res://Scenes/UI/health_2.gd" id="6_ux5h0"]
 [ext_resource type="Texture2D" uid="uid://b2fwecfpaj76w" path="res://SFX/955-9550236_red-vignette-background-peach.png" id="7_mqf2c"]
+
+[sub_resource type="Animation" id="Animation_cna6x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(141, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_am52h"]
+resource_name = "nudge"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666665),
+"transitions": PackedFloat32Array(0.3298769, 0.3298769),
+"update": 0,
+"values": [Vector2(141, -14), Vector2(141, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yttkt"]
+_data = {
+&"RESET": SubResource("Animation_cna6x"),
+&"nudge": SubResource("Animation_am52h")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdh5o"]
+bg_color = Color(0, 0, 0, 0.26666668)
+expand_margin_left = 13.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ny26j"]
 bg_color = Color(0, 0, 0, 1)
@@ -166,7 +207,11 @@ theme_override_fonts/font = ExtResource("3_7wqu8")
 theme_override_font_sizes/font_size = 40
 text = "Go into the bank"
 horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("2_fdl0h")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objective" unique_id=1269489490]
+libraries/ = SubResource("AnimationLibrary_yttkt")
 
 [node name="Money" type="Label" parent="." unique_id=17168329]
 offset_left = 535.0
@@ -178,6 +223,21 @@ theme_override_font_sizes/font_size = 37
 text = "$100"
 horizontal_alignment = 1
 script = ExtResource("2_ny26j")
+
+[node name="Hint" type="Label" parent="." unique_id=214791207]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 430.0
+offset_top = 66.0
+offset_right = 766.0
+offset_bottom = 171.0
+theme_override_fonts/font = ExtResource("3_7wqu8")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_qdh5o")
+text = "Click to pick up 
+and throw nearby 
+objects"
+vertical_alignment = 1
+script = ExtResource("6_qdh5o")
 
 [node name="Panel" type="Panel" parent="." unique_id=316268399]
 z_index = 4
