@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://y103srfu2300" path="res://Daydream DEMO.otf" id="1_cbv5c"]
 [ext_resource type="FontFile" uid="uid://boms6cd2ves1" path="res://VCR_OSD_MONO_1.001 2.ttf" id="2_pkwek"]
-[ext_resource type="Script" uid="uid://jkh42eqdwjsf" path="res://Scenes/UI/button.gd" id="2_rupua"]
+[ext_resource type="Script" uid="uid://jkh42eqdwjsf" path="res://Scenes/UI/Scripts/button.gd" id="2_rupua"]
 
 [sub_resource type="Gradient" id="Gradient_rupua"]
 colors = PackedColorArray(0.06469653, 0.06469653, 0.06469653, 1, 0.5417978, 0, 0.047917396, 1)

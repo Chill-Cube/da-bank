@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://dovt14prhx120"]
 
-[ext_resource type="PackedScene" uid="uid://db51f78xwt0ci" path="res://Scenes/Characters/Player.tscn" id="1_8uh7m"]
-[ext_resource type="Texture2D" uid="uid://c71b562ru51vu" path="res://icon.svg" id="2_6uqi0"]
-[ext_resource type="PackedScene" uid="uid://b3fycyaapy21n" path="res://Scenes/Gameplay/Bomb.tscn" id="3_6uqi0"]
-[ext_resource type="PackedScene" uid="uid://12bmw46s6lsm" path="res://Objects/ObjectTemplate.tscn" id="4_qnhm0"]
-[ext_resource type="PackedScene" uid="uid://cqjudepyt4e7f" path="res://Scenes/Gameplay/pick_up_truck.tscn" id="5_ywpx5"]
-[ext_resource type="PackedScene" uid="uid://cng57svuqmbja" path="res://Scenes/Gameplay/vault.tscn" id="6_g6muf"]
-[ext_resource type="Script" uid="uid://bifeptcshe5to" path="res://Scenes/Gameplay/animation_player.gd" id="7_ga7i2"]
-[ext_resource type="Script" uid="uid://dkex5lbj4bmse" path="res://Scenes/Gameplay/area_2d.gd" id="8_6c0xd"]
-[ext_resource type="PackedScene" uid="uid://q3gsivj82hu5" path="res://Scenes/Gameplay/Spawner.tscn" id="9_6c8aw"]
-[ext_resource type="Texture2D" uid="uid://bvl2cet4ih4k7" path="res://Assets/Items.png" id="10_nrrav"]
-[ext_resource type="Texture2D" uid="uid://gjo423hgf51w" path="res://Assets/1.png" id="11_qoumo"]
-[ext_resource type="Texture2D" uid="uid://w01jncdpogo4" path="res://Assets/Tileset_2D Platformer.png" id="12_e5eh6"]
+[ext_resource type="PackedScene" uid="uid://db51f78xwt0ci" path="res://Scenes/Characters/Player.tscn" id="1_73bp4"]
+[ext_resource type="Texture2D" uid="uid://c71b562ru51vu" path="res://icon.svg" id="2_tsetf"]
+[ext_resource type="PackedScene" uid="uid://12bmw46s6lsm" path="res://Scenes/Objects/ObjectTemplate.tscn" id="3_b0wsk"]
+[ext_resource type="PackedScene" uid="uid://b3fycyaapy21n" path="res://Scenes/Gameplay/Bomb.tscn" id="4_3s2c7"]
+[ext_resource type="PackedScene" uid="uid://cqjudepyt4e7f" path="res://Scenes/Gameplay/pick_up_truck.tscn" id="5_pkx8u"]
+[ext_resource type="PackedScene" uid="uid://cng57svuqmbja" path="res://Scenes/Gameplay/vault.tscn" id="6_ad8r3"]
+[ext_resource type="Script" uid="uid://bifeptcshe5to" path="res://Scenes/Gameplay/Scripts/animation_player.gd" id="7_jykag"]
+[ext_resource type="Script" uid="uid://dkex5lbj4bmse" path="res://Scenes/Gameplay/Scripts/area_2d.gd" id="8_1md0i"]
+[ext_resource type="PackedScene" uid="uid://q3gsivj82hu5" path="res://Scenes/Gameplay/Spawner.tscn" id="9_n7swy"]
+[ext_resource type="Texture2D" uid="uid://bvl2cet4ih4k7" path="res://Assets/Items.png" id="10_m68vp"]
+[ext_resource type="Texture2D" uid="uid://gjo423hgf51w" path="res://Assets/1.png" id="11_ue522"]
+[ext_resource type="Texture2D" uid="uid://w01jncdpogo4" path="res://Assets/Tileset_2D Platformer.png" id="12_3g1pc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyta"]
 size = Vector2(1341.3093, 20)
@@ -139,11 +139,11 @@ _data = {
 size = Vector2(122, 754.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qoumo"]
-atlas = ExtResource("10_nrrav")
+atlas = ExtResource("10_m68vp")
 region = Rect2(282, 394.5, 80, 88)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oqvfa"]
-texture = ExtResource("12_e5eh6")
+texture = ExtResource("12_3g1pc")
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -324,7 +324,7 @@ sources/1 = SubResource("TileSetAtlasSource_oqvfa")
 
 [node name="Node2D" type="Node2D" unique_id=1374149594]
 
-[node name="Player" parent="." unique_id=1380629138 instance=ExtResource("1_8uh7m")]
+[node name="Player" parent="." unique_id=1380629138 instance=ExtResource("1_73bp4")]
 z_index = 1
 position = Vector2(-1330, -110)
 
@@ -343,87 +343,87 @@ shape = SubResource("RectangleShape2D_ppyta")
 texture_filter = 1
 position = Vector2(-84.72533, 358.00458)
 scale = Vector2(10.461344, 5.7500715)
-texture = ExtResource("2_6uqi0")
+texture = ExtResource("2_tsetf")
 
-[node name="CharacterBody2D" parent="." unique_id=140440757 instance=ExtResource("4_qnhm0")]
+[node name="CharacterBody2D" parent="." unique_id=140440757 instance=ExtResource("3_b0wsk")]
 position = Vector2(2408, 45)
 scale = Vector2(1.3663404, 1.3663404)
 value = 50.0
 
-[node name="CharacterBody2D2" parent="." unique_id=1823038618 instance=ExtResource("4_qnhm0")]
+[node name="CharacterBody2D2" parent="." unique_id=1823038618 instance=ExtResource("3_b0wsk")]
 modulate = Color(0.9982986, 0.75771075, 1, 1)
 position = Vector2(2596.9998, -24.999992)
 scale = Vector2(2.7072008, 2.7072008)
 weight = 600.0
 value = 500.0
 
-[node name="CharacterBody2D4" parent="." unique_id=1916147245 instance=ExtResource("4_qnhm0")]
+[node name="CharacterBody2D4" parent="." unique_id=1916147245 instance=ExtResource("3_b0wsk")]
 position = Vector2(2945, 45)
 scale = Vector2(1.3663404, 1.3663404)
 value = 50.0
 
-[node name="CharacterBody2D5" parent="." unique_id=490007408 instance=ExtResource("4_qnhm0")]
+[node name="CharacterBody2D5" parent="." unique_id=490007408 instance=ExtResource("3_b0wsk")]
 modulate = Color(0.9982986, 0.75771075, 1, 1)
 position = Vector2(3133.9998, -24.999992)
 scale = Vector2(2.7072008, 2.7072008)
 weight = 600.0
 value = 500.0
 
-[node name="CharacterBody2D6" parent="." unique_id=1739135791 instance=ExtResource("4_qnhm0")]
+[node name="CharacterBody2D6" parent="." unique_id=1739135791 instance=ExtResource("3_b0wsk")]
 modulate = Color(1, 1, 0.80784315, 1)
 position = Vector2(2799, 24)
 scale = Vector2(1.7653941, 1.7653941)
 weight = 350.0
 value = 100.0
 
-[node name="CharacterBody2D7" parent="." unique_id=109280776 instance=ExtResource("4_qnhm0")]
+[node name="CharacterBody2D7" parent="." unique_id=109280776 instance=ExtResource("3_b0wsk")]
 position = Vector2(3497, 45)
 scale = Vector2(1.3663404, 1.3663404)
 value = 50.0
 
-[node name="CharacterBody2D8" parent="." unique_id=1629315288 instance=ExtResource("4_qnhm0")]
+[node name="CharacterBody2D8" parent="." unique_id=1629315288 instance=ExtResource("3_b0wsk")]
 modulate = Color(0.9982986, 0.75771075, 1, 1)
 position = Vector2(3685.9998, -24.999992)
 scale = Vector2(2.7072008, 2.7072008)
 weight = 600.0
 value = 500.0
 
-[node name="CharacterBody2D9" parent="." unique_id=503240809 instance=ExtResource("4_qnhm0")]
+[node name="CharacterBody2D9" parent="." unique_id=503240809 instance=ExtResource("3_b0wsk")]
 modulate = Color(1, 1, 0.80784315, 1)
 position = Vector2(3351, 24)
 scale = Vector2(1.7653941, 1.7653941)
 weight = 350.0
 value = 100.0
 
-[node name="Bomb" parent="." unique_id=563254750 instance=ExtResource("3_6uqi0")]
+[node name="Bomb" parent="." unique_id=563254750 instance=ExtResource("4_3s2c7")]
 position = Vector2(1796, 35)
 
-[node name="Truck" parent="." unique_id=919585520 instance=ExtResource("5_ywpx5")]
+[node name="Truck" parent="." unique_id=919585520 instance=ExtResource("5_pkx8u")]
 z_index = -2
 position = Vector2(-1411, -61)
 
-[node name="Vault9000" parent="." unique_id=1486326053 instance=ExtResource("6_g6muf")]
+[node name="Vault9000" parent="." unique_id=1486326053 instance=ExtResource("6_ad8r3")]
 position = Vector2(3040.9998, -414.00006)
 scale = Vector2(7.245283, 7.155976)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=33372672]
 libraries/ = SubResource("AnimationLibrary_nrrav")
-script = ExtResource("7_ga7i2")
+script = ExtResource("7_jykag")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=868960163]
 position = Vector2(1407, 0)
-script = ExtResource("8_6c0xd")
+script = ExtResource("8_1md0i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1245403031]
 position = Vector2(212, -253)
 shape = SubResource("RectangleShape2D_6c8aw")
 
-[node name="Spawner" parent="." unique_id=1841466848 instance=ExtResource("9_6c8aw")]
+[node name="Spawner" parent="." unique_id=1841466848 instance=ExtResource("9_n7swy")]
 position = Vector2(-2945, -613)
 max_enemies = 10
 spawn_delay = 0.5
 
-[node name="Object" parent="." unique_id=172680750 instance=ExtResource("4_qnhm0")]
+[node name="Object" parent="." unique_id=172680750 instance=ExtResource("3_b0wsk")]
 position = Vector2(364, 14)
 scale = Vector2(1.9331977, 1.9331977)
 value = 20.0
@@ -432,7 +432,7 @@ value = 20.0
 position = Vector2(-2, 17)
 texture = SubResource("AtlasTexture_qoumo")
 
-[node name="Object2" parent="." unique_id=1992006773 instance=ExtResource("4_qnhm0")]
+[node name="Object2" parent="." unique_id=1992006773 instance=ExtResource("3_b0wsk")]
 position = Vector2(1346, 14)
 scale = Vector2(1.9331977, 1.9331977)
 value = 20.0
@@ -441,7 +441,7 @@ value = 20.0
 position = Vector2(-2, 17)
 texture = SubResource("AtlasTexture_qoumo")
 
-[node name="Object3" parent="." unique_id=761815806 instance=ExtResource("4_qnhm0")]
+[node name="Object3" parent="." unique_id=761815806 instance=ExtResource("3_b0wsk")]
 position = Vector2(-654, 14)
 scale = Vector2(1.9331977, 1.9331977)
 value = 20.0
@@ -455,7 +455,7 @@ z_index = -20
 texture_filter = 1
 position = Vector2(-308.99994, -164)
 scale = Vector2(22.374, 22.374)
-texture = ExtResource("11_qoumo")
+texture = ExtResource("11_ue522")
 metadata/_edit_lock_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1239663943]

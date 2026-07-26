@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://y103srfu2300" path="res://Daydream DEMO.otf" id="3_vnfq8"]
 [ext_resource type="Texture2D" uid="uid://gjo423hgf51w" path="res://Assets/1.png" id="4_cgn5s"]
 [ext_resource type="FontFile" uid="uid://boms6cd2ves1" path="res://VCR_OSD_MONO_1.001 2.ttf" id="5_nujy2"]
-[ext_resource type="Script" uid="uid://jkh42eqdwjsf" path="res://Scenes/UI/button.gd" id="6_rdve1"]
+[ext_resource type="Script" uid="uid://jkh42eqdwjsf" path="res://Scenes/UI/Scripts/button.gd" id="6_rdve1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vnfq8"]
 atlas = ExtResource("2_knpmx")
