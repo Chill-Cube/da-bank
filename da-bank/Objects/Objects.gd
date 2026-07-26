@@ -125,5 +125,5 @@ func _update_trajectory_preview(player: Player) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if thrown:
 		if body is Enemy:
-			var knockback := velocity.normalized() * 1000
+			var knockback := velocity.normalized() * 2000
 			body.take_damage((weight / 35.0) * 4, knockback)

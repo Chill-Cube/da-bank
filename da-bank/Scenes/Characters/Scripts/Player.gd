@@ -14,9 +14,10 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	if sprite.rotation == deg_to_rad(90): return
-	if HEALTH <= 0.0:
-		sprite.rotation = lerp(sprite.rotation, deg_to_rad(90), 0.1)
-		sprite.offset = lerp(sprite.offset, Vector2(57.925, 0), 0.1)
+	
+	
+	var health_percent := HEALTH / MAX_HEALTH
+	$Hud/Vignette.modulate.a = lerp(1.0, 0.0, health_percent)
 	
 	if is_on_floor() and !jumping and !animation_playing("jump"):
 		fallen = false
@@ -50,9 +51,57 @@ func get_money(money : float, _object : PickUpObject) -> void:
 	MONEY += money
 	$ching.play()
 	
+	
+var dying := false
+
 func die():
-	$CameraPivot/Camera2D.zoom = lerp($CameraPivot/Camera2D.zoom, Vector2(1.0, 1.0), 0.5)
+	if dying:
+		return
+	dying = true
+	for child in $Hud.get_children():
+		if child.name != "Vignette" and child is Control:
+			child.visible = false
+			
+	var tween := create_tween()
+
+	tween.set_ignore_time_scale(true)
+
+	tween.tween_property(
+		$CameraPivot/Camera2D,
+		"zoom",
+		Vector2.ONE,
+		1.0
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	
+	$Lose.play()
 	Engine.time_scale = 0.05
+		
+	var tween2 := create_tween()
+
+	tween2.set_ignore_time_scale(true)
+
+	tween2.set_parallel(true)
+
+	tween2.tween_property(
+		sprite,
+		"rotation",
+		deg_to_rad(90),
+		1.0
+	).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+
+	tween2.tween_property(
+		sprite,
+		"offset",
+		Vector2(57.925, 0),
+		1.0
+	).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+
+	await get_tree().create_timer(5.0, true, false, true).timeout
+	TransitionScreen.get_node("AnimationPlayer").speed_scale = 0.107 / Engine.time_scale
+	TransitionScreen.transition()
+	await TransitionScreen.on_transition_finished
+	get_tree().change_scene_to_file("res://Scenes/UI/Lose.tscn")
+	
 
 func _input(event: InputEvent) -> void:
 	if HEALTH <= 0: return

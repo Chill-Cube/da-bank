@@ -9,6 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://c24nrlh6whfw1" path="res://SFX/683101__florianreichelt__quick-woosh.mp3" id="7_w38he"]
 [ext_resource type="AudioStream" uid="uid://dela2kltrmc7u" path="res://SFX/196832__margo_heston__throw-f.wav" id="8_w38he"]
 [ext_resource type="AudioStream" uid="uid://bsmkf41o22bak" path="res://SFX/freesound_gamestudio-drop-coin-384921.mp3" id="9_meglp"]
+[ext_resource type="AudioStream" uid="uid://sbs00frjkbkm" path="res://SFX/dmg.wav" id="10_w6cdd"]
+[ext_resource type="AudioStream" uid="uid://bn735ine0gsn7" path="res://SFX/chrysalyn-cinematic-intro-whoosh-with-deep-bass-drop-543523.mp3" id="11_b4kmf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tok1r"]
 radius = 58.0
@@ -54,3 +56,10 @@ stream = ExtResource("8_w38he")
 
 [node name="ching" type="AudioStreamPlayer" parent="." unique_id=1433656936]
 stream = ExtResource("9_meglp")
+
+[node name="Dmg" type="AudioStreamPlayer" parent="." unique_id=2105814026]
+stream = ExtResource("10_w6cdd")
+volume_db = -17.333
+
+[node name="Lose" type="AudioStreamPlayer" parent="." unique_id=710810886]
+stream = ExtResource("11_b4kmf")

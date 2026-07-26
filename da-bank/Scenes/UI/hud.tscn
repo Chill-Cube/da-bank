@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b3ye21vqleawi" path="res://Scenes/UI/Scripts/money.gd" id="2_ny26j"]
 [ext_resource type="Script" uid="uid://738b6v6ayigj" path="res://Scenes/UI/letterbox.gd" id="5_vsu76"]
 [ext_resource type="Script" uid="uid://dv3tkuk6dwobp" path="res://Scenes/UI/health_2.gd" id="6_ux5h0"]
+[ext_resource type="Texture2D" uid="uid://b2fwecfpaj76w" path="res://SFX/955-9550236_red-vignette-background-peach.png" id="7_mqf2c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ny26j"]
 bg_color = Color(0, 0, 0, 1)
@@ -22,7 +23,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -118)]
+"values": [Vector2(0, -120)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -34,7 +35,19 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 647)]
+"values": [Vector2(0, 648)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel2:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1152, 120)]
 }
 
 [sub_resource type="Animation" id="Animation_8glcj"]
@@ -49,7 +62,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(0.21763767, 0.21763767),
 "update": 0,
-"values": [Vector2(0, -118), Vector2(0, -2)]
+"values": [Vector2(0, -120), Vector2(0, -2)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -61,7 +74,19 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(0.21763767, 0.21763767),
 "update": 0,
-"values": [Vector2(0, 647), Vector2(0, 510)]
+"values": [Vector2(0, 648), Vector2(0, 510)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("Panel2:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1152, 120)]
 }
 
 [sub_resource type="Animation" id="Animation_ny26j"]
@@ -73,10 +98,10 @@ tracks/0/path = NodePath("Panel2:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.96666664),
-"transitions": PackedFloat32Array(0.21763767, 0.21763767),
+"times": PackedFloat32Array(0, 0.96666664, 1),
+"transitions": PackedFloat32Array(0.21763767, 0.21763767, 1),
 "update": 0,
-"values": [Vector2(0, -2), Vector2(0, -118)]
+"values": [Vector2(0, -2), Vector2(0, -118), Vector2(0, -120)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -85,10 +110,10 @@ tracks/1/path = NodePath("Panel:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.96666664),
-"transitions": PackedFloat32Array(0.21763767, 0.21763767),
+"times": PackedFloat32Array(0, 0.96666664, 1),
+"transitions": PackedFloat32Array(0.21763767, 0.21763767, 1),
 "update": 0,
-"values": [Vector2(0, 510), Vector2(0, 647)]
+"values": [Vector2(0, 510), Vector2(0, 647), Vector2(0, 648)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vsu76"]
@@ -141,16 +166,48 @@ script = ExtResource("2_ny26j")
 
 [node name="Panel" type="Panel" parent="." unique_id=316268399]
 z_index = 4
-offset_top = 647.0
+offset_top = 648.0
 offset_right = 1152.0
-offset_bottom = 863.0
+offset_bottom = 863.99976
 theme_override_styles/panel = SubResource("StyleBoxFlat_ny26j")
+
+[node name="BustedScreen" type="Panel" parent="." unique_id=1644515055]
+visible = false
+self_modulate = Color(1, 1, 1, 0.6745098)
+z_index = 4
+offset_top = -1.0
+offset_right = 1152.0
+offset_bottom = 644.99976
+theme_override_styles/panel = SubResource("StyleBoxFlat_ny26j")
+
+[node name="Panel4" type="Panel" parent="BustedScreen" unique_id=1724356755]
+self_modulate = Color(1, 1, 1, 0.9098039)
+z_index = 4
+layout_mode = 0
+offset_top = 216.99976
+offset_right = 1152.0
+offset_bottom = 429.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ny26j")
+
+[node name="Objective" type="Label" parent="BustedScreen/Panel4" unique_id=390984275]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -435.0
+offset_top = 14.000244
+offset_right = 473.0
+offset_bottom = 210.00024
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 128
+text = "Busted!!!!"
+horizontal_alignment = 1
 
 [node name="Panel2" type="Panel" parent="." unique_id=890801308]
 z_index = 4
-offset_top = -118.0
+offset_top = -120.0
 offset_right = 1152.0
-offset_bottom = 2.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ny26j")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=335104040]
@@ -164,3 +221,8 @@ offset_right = 862.3333
 offset_bottom = 641.0
 theme_override_font_sizes/font_size = 35
 script = ExtResource("6_ux5h0")
+
+[node name="Vignette" type="Sprite2D" parent="." unique_id=1939849853]
+position = Vector2(579.55554, 327)
+scale = Vector2(0.5994214, 0.59999996)
+texture = ExtResource("7_mqf2c")

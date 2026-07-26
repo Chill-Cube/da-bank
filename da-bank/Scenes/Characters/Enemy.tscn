@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bf4ljfy7isphv" path="res://Scenes/Characters/Scripts/Enemy.gd" id="1_nxmrh"]
 [ext_resource type="SpriteFrames" uid="uid://8s02amvmx7qs" path="res://Assets/Animations.tres" id="2_nxmrh"]
 [ext_resource type="PackedScene" uid="uid://cirdkc8w460e2" path="res://Scenes/Characters/Particles.tscn" id="3_qp4pf"]
+[ext_resource type="AudioStream" uid="uid://sbs00frjkbkm" path="res://SFX/dmg.wav" id="4_nu35y"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tok1r"]
 radius = 45.0
@@ -39,6 +40,10 @@ offset_left = -88.0
 offset_top = -164.0
 offset_right = 92.0
 offset_bottom = -137.0
+
+[node name="Dmg" type="AudioStreamPlayer" parent="." unique_id=464093478]
+stream = ExtResource("4_nu35y")
+volume_db = -17.333
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_exited"]

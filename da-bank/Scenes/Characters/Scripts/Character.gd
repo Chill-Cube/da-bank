@@ -12,6 +12,7 @@ class_name Character
 @onready var move_particles := $Particles/Dust
 @onready var speed_lines := $Particles/SpeedLines
 @onready var sprite := $Sprite2D
+@onready var sfx := $Dmg
 
 @export var KNOCKBACK_RESISTANCE := 1.0
 
@@ -19,6 +20,7 @@ var jumping := false
 var vel := Vector2.ZERO
 
 func _ready():
+	
 	HEALTH = MAX_HEALTH
 	speed_lines.texture = speed_lines.texture.duplicate()
 
@@ -37,8 +39,8 @@ func take_damage(amount: float, knockback: Vector2 = Vector2.ZERO) -> void:
 
 	sprite.modulate = Color(1.0, 0.2, 0.2)
 	
-	$Dmg.pitch_scale = randf_range(0.9, 1.1)
-	$Dmg.play()
+	sfx.pitch_scale = randf_range(0.9, 1.1)
+	sfx.play()
 
 	damage_tween = create_tween()
 	damage_tween.tween_property(sprite, "modulate", Color.WHITE, 0.15)

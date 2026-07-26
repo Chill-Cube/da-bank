@@ -5,7 +5,7 @@ class_name Enemy
 
 var players = []
 var time = 0.0
-var damage := 1.0
+var damage := 3.0
 
 func _ready():
 	SPEED = 600.0
@@ -37,12 +37,12 @@ func _on_entered(body: Node2D) -> void:
 func _process(delta: float) -> void:
 	health_bar.max_value = MAX_HEALTH
 	health_bar.value = HEALTH
-	if time >= 0.15:
+	if time >= 0.5:
 		time = 0.0
 	if time == 0.0 and HEALTH > 0.0:
 		for i : Player in players:
-			var knockback := (i.global_position - global_position).normalized() * 250
-			knockback.y = -100
+			var knockback := (i.global_position - global_position).normalized() * 1000
+			knockback.y = 0
 
 			i.take_damage(damage, knockback)
 	time += delta

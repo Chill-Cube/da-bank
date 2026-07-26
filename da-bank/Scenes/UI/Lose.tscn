@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bmlovgq32dcn1"]
+
+[node name="Win" type="Node2D" unique_id=1437464111]
+
+[node name="Label" type="Label" parent="." unique_id=2024347686]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "you got caught
+shame on you"
