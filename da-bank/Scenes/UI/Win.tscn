@@ -23,6 +23,47 @@ height = 24
 [sub_resource type="Gradient" id="Gradient_rdve1"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
+[sub_resource type="GDScript" id="GDScript_nujy2"]
+script/source = "extends ProgressBar
+
+@onready var string: String = get_node(\"Label\").text
+var val := 0.0
+
+var ranks := [370,740,1110,1480,1850]
+var rank := 1
+var winser := false
+
+var time := 0.0
+var update_delay := 0.0
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if time >= update_delay:
+		update_delay = 0.0
+		time = 0.0
+
+		if val < GlobalVariables.money:
+			val += 10.0
+		if val >= GlobalVariables.money:
+			val = GlobalVariables.money
+		get_node(\"Label\").text = string % [val,ranks[clamp(rank,0,ranks.size()-1)]]
+		value = val
+		max_value = clamp(rank,0,ranks.size()-1)
+		if rank > ranks.size()-1 and !winser:
+			winser = true
+			update_delay = 1.0
+		if !winser:
+			if val >= ranks[rank]:
+				rank += 1
+				update_delay = 1.0
+	time += delta
+"
+
 [node name="Win" type="Node2D" unique_id=1437464111]
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=322011597]
@@ -96,8 +137,23 @@ theme_override_font_sizes/font_size = 53
 text = "Retry"
 script = ExtResource("6_rdve1")
 
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=828157753]
-offset_right = 4.0
-offset_bottom = 27.0
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=476333946]
+offset_left = 485.0
+offset_top = 229.0
+offset_right = 693.0
+offset_bottom = 256.0
+show_percentage = false
+script = SubResource("GDScript_nujy2")
+
+[node name="Label" type="Label" parent="ProgressBar" unique_id=996084574]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "$%d / $%d"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

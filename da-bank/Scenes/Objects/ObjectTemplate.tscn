@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://12bmw46s6lsm"]
 
-[ext_resource type="Script" uid="uid://c07jnq1wthwix" path="res://Objects/Objects.gd" id="1_2uv53"]
+[ext_resource type="Script" uid="uid://c07jnq1wthwix" path="res://Scenes/Objects/Objects.gd" id="1_2uv53"]
 [ext_resource type="Texture2D" uid="uid://bvl2cet4ih4k7" path="res://Assets/Items.png" id="1_kwigx"]
 
 [sub_resource type="Shader" id="Shader_2uv53"]
